@@ -38,9 +38,41 @@ function watchNavClicks() {
     })
 }
 
+function getApps(URL){
+    fetch(URL)
+    .then(response =>{
+        if (response.ok){
+            return response.json();
+        }
+        throw new Error(response.statusText);
+    })
+    .then(responseJson => console.log(responseJson))
+    .catch (err =>{
+        $('.resluts').text(`Something went wrong: ${err.message}`)
+    })
+}
+
+const recipePuppyURL = 'http://www.recipepuppy.com/api/?i='
+
+function appURL(ingredient){
+    const queryList = ingredient.replace(/\s+/g, '');
+    const appURL = recipePuppyURL + queryList + '&q=appetizer'
+    console.log (appURL);
+    getApps(appURL);
+}
+
+function watchAppIngredientSearch(){
+    $('.submitAppIngredient').on('click', event=>{
+        event.preventDefault();
+        const appIngredient= $('.appIngredient').val();
+        console.log(appIngredient);
+        appURL(appIngredient);
+    })
+}
+
 function runPage(){
     watchNavClicks();
-
+    watchAppIngredientSearch();
 }
 
 runPage ();
