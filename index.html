@@ -26,16 +26,16 @@
             <h3>Cocktails</h3>
             Search by Cocktail name:<br>
             <input type="text" class="cocktailname"><br>
-            <input type="submit" class="submitCocktailName" value="Search Name"><br>
+            <input type="submit" class="submitCocktailName" value="Search Name"><br><br>
             Search by ingredient:<br>
             <input type="text" class="cocktailIngredient"><br>
-            <input type="submit" class="submitCocktailIngredient" value="Search Ingredient"><br>
-            <button class="nonalcoholic">Non-Alcoholic</button><br>
+            <input type="submit" class="submitCocktailIngredient" value="Search Ingredient"><br><br>
+            <button class="nonalcoholic">Non-Alcoholic</button><br><br>
             <button class="random">Random Cocktail</button>
         </form>
         <div id="cocktailResluts" class="hidden">
                 <h3>Results:</h3>
-                <ul class="results">
+                <ul class="cocResults">
                     
                 </ul>
         </div>
@@ -52,30 +52,33 @@
         </form>
         <div id="appetizerResults" class="hidden">
             <h3>Results:</h3>
-            <ul class="results">
+            <ul class="appResults">
                 <li>title<br><img class="appimage" src=''><br><a target="_blank" href=''>View Recipe</a><br><a target="_blank" href=''>publisher</a></li>
             </ul>
         </div>
     </section>
 
-    <section id="celebrityResults" class="celebrityView">
+    <section class="celebrityView">
         <h1>Celebrity Cocktail Party</h1>
         <nav class="pagenav"><button class="appetizers">Appetizers</button><button class="cocktails">Cocktails</button><button class="homebutton">Home</button></nav>
         <form class="celebrityform">
-            <h3>Celebrity Names</h3><br>
-            <input type="radio" value="female">Female<br>
-            <input type="radio" value="male">male<br>
-            How many guests:<br>
-            <input type="number" value=""><br>
-            <input type="submit" class="submitCelebrity" value="Search Celebrity Names"><br>
+            <h3>Celebrity Names</h3>
+            How many names:<br>
+            <input type="number" class="numberNames" value=""><br>
+            Gender:
+            <input type="radio" name='gender' value="female">Female<br>
+            <input type="radio" name='gender' value="male">male<br>
+            <input type="submit" class="submitCelebrity" value="Search Celebrity Names">
+            
         </form>
-        <div class="hidden">
+        <div id="celebrityResults" class="hidden">
                 <h3>Results:</h3>
-                <ul class="results">
-                    
+                <ul class="celResults">
+                    <li>name<br><img class="celimage" src=''></li>
                 </ul>
         </div>
     </section>
-    <script src="script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="data.js"></script>
   </body>
 </html>

@@ -40,10 +40,10 @@ function watchNavClicks() {
 
 function displayAppResults(responseJson){
     console.log (responseJson);
-    $('.results').empty();
+    $('.appResults').empty();
     $('#appetizerResults').removeClass('hidden');
     for (let i=0; i<responseJson.recipes.length; i++){
-    $('.results').append(`<li>${responseJson.recipes[i].title}<br><img src='${responseJson.recipes[i].image_url}' class="appimage"><br><a target="_blank" href='${responseJson.recipes[i].source_url}'>View Recipe</a><br><a target="_blank" href='${responseJson.recipes[i].publisher_url}'>${responseJson.recipes[i].publisher}</a></li>`)
+    $('.appResults').append(`<li>${responseJson.recipes[i].title}<br><img src='${responseJson.recipes[i].image_url}' class="appimage"><br><a target="_blank" href='${responseJson.recipes[i].source_url}'>View Recipe</a><br><a target="_blank" href='${responseJson.recipes[i].publisher_url}'>${responseJson.recipes[i].publisher}</a></li>`)
     }
 }
 
@@ -79,9 +79,47 @@ function watchAppIngredientSearch(){
     })
 }
 
+function generateRandom(numNames){
+    //const randomNumberArray = Array.from({length: numNames}, () => Math.floor(Math.random() * 10));
+    //console.log(randomNumberArray);
+    $('.celResults').empty();
+    $('#celebrityResults').removeClass('hidden');
+for (var a=[],i=0;i<maleCelebrity.length;++i) a[i]=i;
+
+// http://stackoverflow.com/questions/962802#962890
+function shuffle(randomArray) {
+  var tmp, current, top = randomArray.length;
+  if(top) while(--top) {
+    current = Math.floor(Math.random() * (top + 1));
+    tmp = randomArray[current];
+    randomArray[current] = randomArray[top];
+    randomArray[top] = tmp;
+  }
+  console.log(randomArray)
+  return randomArray;
+}
+a = shuffle(a);
+
+var userArray = a.slice(0, numNames);
+console.log (userArray)
+    for (let i=0; i<userArray.length; i++){
+        let location = userArray[i];
+        $('.celResults').append(`<li>${maleCelebrity[location].name}<br><img class="celimage" src='${maleCelebrity[location].img}'></li>`);}
+};
+
+function watchCelebritySearch(){
+    $('.submitCelebrity').on('click', event=>{
+        event.preventDefault();
+        const numNames= $('.numberNames').val();
+        console.log(numNames);
+        generateRandom(numNames);
+    })
+};
+
 function runPage(){
     watchNavClicks();
     watchAppIngredientSearch();
-}
+    watchCelebritySearch();
+};
 
 runPage ();
