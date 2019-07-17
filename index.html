@@ -63,17 +63,22 @@
         <nav class="pagenav"><button class="appetizers">Appetizers</button><button class="cocktails">Cocktails</button><button class="homebutton">Home</button></nav>
         <form class="celebrityform">
             <h3>Celebrity Names</h3>
-            How many names:<br>
-            <input type="number" class="numberNames" value=""><br>
-            Gender:
-            <input type="radio" name='gender' value="female">Female<br>
-            <input type="radio" name='gender' value="male">male<br>
+            How many female:<br>
+            <input type="number" class="femaleNames" value=""><br>
+            How many male:<br>
+            <input type="number" class="maleNames" value=""><br>
             <input type="submit" class="submitCelebrity" value="Search Celebrity Names">
             
         </form>
-        <div id="celebrityResults" class="hidden">
-                <h3>Results:</h3>
-                <ul class="celResults">
+        <div id="femaleCelebrityResults" class="hidden">
+                <h3>Female Results:</h3>
+                <ul class="femaleCelResults">
+                    <li>name<br><img class="celimage" src=''></li>
+                </ul>
+        </div>
+        <div id="maleCelebrityResults" class="hidden">
+            <h3>Male Results:</h3>
+                <ul class="maleCelResults">
                     <li>name<br><img class="celimage" src=''></li>
                 </ul>
         </div>
