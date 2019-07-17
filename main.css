@@ -5,3 +5,8 @@
 .hidden {
     display: none;
 }
+
+.appimage {
+  height: 200px;
+  border-radius: 5px;
+}

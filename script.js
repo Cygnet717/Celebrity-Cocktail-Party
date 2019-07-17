@@ -40,8 +40,10 @@ function watchNavClicks() {
 
 function displayAppResults(responseJson){
     console.log (responseJson);
+    $('.results').empty();
+    $('#appetizerResults').removeClass('hidden');
     for (let i=0; i<responseJson.recipes.length; i++){
-    $('.results').append(`<li>${responseJson.recipes[i].title}<br><img src='${responseJson.recipes[i].image_url}'><br><a target="_blank"  class="appimage" href='${responseJson.recipes[i].source_url}'>View Recipe</a><a target="_blank"  class="appimage" href='${responseJson.recipes[i].publisher_url}'></a></li>`)
+    $('.results').append(`<li>${responseJson.recipes[i].title}<br><img src='${responseJson.recipes[i].image_url}' class="appimage"><br><a target="_blank" href='${responseJson.recipes[i].source_url}'>View Recipe</a><br><a target="_blank" href='${responseJson.recipes[i].publisher_url}'>${responseJson.recipes[i].publisher}</a></li>`)
     }
 }
 
