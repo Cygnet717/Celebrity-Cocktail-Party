@@ -163,12 +163,56 @@ function watchCelebritySearch(){
     })
 };
 
-function cocktailByName(){
+const byNameURL= 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
 
+function cocktailByName(){
+    $('.submitCocktailName').on('click', event=>{
+        event.preventDefault();
+        const cocktailname= $('.cocktailname').val();
+        console.log(cocktailname);
+        fetchNameURL(cocktailname);
+    })
 }
 
-function cocktailByIngredient(){
+function fetchNameURL(name){
+    const nameURL = byNameURL+name;
+    fetch(nameURL)
+    .then(response =>{
+        if (response.ok){
+            return response.json();
+        }
+        throw new Error(response.statusText);
+    })
+    .then(responseJson => displayCocResults(responseJson))
+    .catch (err =>{
+        $('.resluts').text(`Something went wrong: ${err.message}`)
+    })
+}
 
+const byIngredientURL = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i='
+
+function cocktailByIngredient(){
+    $('.submitCocktailIngredient').on('click', event=>{
+        event.preventDefault();
+        const cocktailIng= $('.cocktailIngredient').val();
+        console.log(cocktailIng);
+        fetchIngURL(cocktailIng);
+    })
+}
+
+function fetchIngURL(name){
+    const ingURL = byIngredientURL+name;
+    fetch(ingURL)
+    .then(response =>{
+        if (response.ok){
+            return response.json();
+        }
+        throw new Error(response.statusText);
+    })
+    .then(responseJson => displayCocResults(responseJson))
+    .catch (err =>{
+        $('.resluts').text(`Something went wrong: ${err.message}`)
+    })
 }
 
 const nonalcURL= 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic'
@@ -176,8 +220,6 @@ const nonalcURL= 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_A
 function generateNonAlcoholic(){
     $('.nonalcoholic').on('click', event =>{
         event.preventDefault();
-        $('.cocResults').empty();
-        $('#cocktailResluts').removeClass('hidden');
         fetch(nonalcURL)
         .then(response =>{
             if (response.ok){
@@ -194,6 +236,8 @@ function generateNonAlcoholic(){
 
 function displayCocResults(results){
     console.log(results);
+    $('.cocResults').empty();
+    $('#cocktailResluts').removeClass('hidden');
     for (let i=0; i<results.drinks.length; i++){
         $('.cocResults').append(`<li><button type='submit' class='findingredients' value='${results.drinks[i].idDrink}'>${results.drinks[i].strDrink}</button><br><img src='${results.drinks[i].strDrinkThumb}' class="cocimage"></li>`)
         }
