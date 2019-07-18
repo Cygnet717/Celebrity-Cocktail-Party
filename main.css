@@ -25,3 +25,7 @@
 .totheside{
   display: flex;
 }
+
+.ingredientList {
+  list-style: none;
+}
