@@ -3,6 +3,8 @@
 $('.cocktailsView').hide();
 $('.appetizersView').hide();
 $('.celebrityView').hide();
+$('.namediv').hide();
+$('.ingredientdiv').hide();
 
 function watchNavClicks() {
     $("nav .cocktails").on('click', event =>{
@@ -35,7 +37,25 @@ function watchNavClicks() {
         $('.appetizersView').hide();
         $('.cocktailsView').hide();
         $('.celebrityView').hide();
-    })
+    });
+
+    $('.byname').on('click', event =>{
+        console.log('search by name clicked');
+        $('.namediv').show();
+        $('.ingredientdiv').hide();
+    });
+
+    $('.byingredient').on('click', event =>{
+        console.log('search by ingredient clicked');
+        $('.namediv').hide();
+        $('.ingredientdiv').show();
+    });
+
+    $('.nonalcoholic, .random').on('click', event =>{
+        console.log('random or nonalcoholic clicked');
+        $('.namediv').hide();
+        $('.ingredientdiv').hide();
+    });
 }
 
 function displayAppResults(responseJson){
@@ -143,10 +163,78 @@ function watchCelebritySearch(){
     })
 };
 
+function cocktailByName(){
+
+}
+
+function cocktailByIngredient(){
+
+}
+
+const nonalcURL= 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic'
+
+function generateNonAlcoholic(){
+    $('.nonalcoholic').on('click', event =>{
+        event.preventDefault();
+        $('.cocResults').empty();
+        $('#cocktailResluts').removeClass('hidden');
+        fetch(nonalcURL)
+        .then(response =>{
+            if (response.ok){
+                return response.json();
+            }
+            throw new Error(response.statusText);
+        })
+        .then(responseJson => displayCocResults(responseJson))
+        .catch (err =>{
+            $('.resluts').text(`Something went wrong: ${err.message}`)
+        })
+        })
+}
+
+function displayCocResults(results){
+    console.log(results);
+    for (let i=0; i<results.drinks.length; i++){
+        $('.cocResults').append(`<li><button type='submit' class='findingredients' value='${results.drinks[i].idDrink}'>${results.drinks[i].strDrink}</button><br><img src='${results.drinks[i].strDrinkThumb}' class="cocimage"></li>`)
+        }
+}
+
+const randCoURL= 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
+
+function generateRandomCocktail(){
+    $('.random').on('click', event =>{
+        event.preventDefault();
+        $('.cocResults').empty();
+        $('#cocktailResluts').removeClass('hidden');
+        fetch(randCoURL)
+        .then(response =>{
+            if (response.ok){
+                return response.json();
+            }
+            throw new Error(response.statusText);
+        })
+        .then(responseJson => displayCocResults(responseJson))
+        .catch (err =>{
+            $('.resluts').text(`Something went wrong: ${err.message}`)
+        })
+        })
+}
+
+const findbyidURL='https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid='
+
+function pullCocIngredients(){
+    
+}
+
 function runPage(){
     watchNavClicks();
     watchAppIngredientSearch();
     watchCelebritySearch();
+    cocktailByName();
+    cocktailByIngredient();
+    generateNonAlcoholic();
+    generateRandomCocktail();
+    pullCocIngredients();
 };
 
 runPage ();

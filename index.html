@@ -22,21 +22,24 @@
     <section class="cocktailsView">
         <h1>Celebrity Cocktail Party</h1>
         <nav class="pagenav"><button class="appetizers">Appetizers</button><button class="celebrity">Celebrity Names</button><button class="homebutton">Home</button> </nav>
+        <h3>Cocktails</h3>
+        <h4>Search for cocktail by</h4>
+        <button class="byname">Cocktail Name</button><button class="byingredient">Ingredient</button><button class="nonalcoholic">Non-Alcoholic</button><button class="random">Random Cocktail</button>
         <form>
-            <h3>Cocktails</h3>
+            <div class="namediv">
             Search by Cocktail name:<br>
             <input type="text" class="cocktailname"><br>
-            <input type="submit" class="submitCocktailName" value="Search Name"><br><br>
+            <input type="submit" class="submitCocktailName" value="Search Name">
+            </div>
+            <div class="ingredientdiv">
             Search by ingredient:<br>
             <input type="text" class="cocktailIngredient"><br>
-            <input type="submit" class="submitCocktailIngredient" value="Search Ingredient"><br><br>
-            <button class="nonalcoholic">Non-Alcoholic</button><br><br>
-            <button class="random">Random Cocktail</button>
+            <input type="submit" class="submitCocktailIngredient" value="Search Ingredient"></div>
         </form>
         <div id="cocktailResluts" class="hidden">
                 <h3>Results:</h3>
                 <ul class="cocResults">
-                    
+                    <li class="totheside"><button type='submit' class='findingredients' value='drinkid'>drink name</button><br><img src='https://www.thecocktaildb.com/images/media/drink/qyqtpv1468876144.jpg' class="cocimage"><div>Instructions: blah blah blah <br>Ingredients:<br><ul><li>amount ing one</li><li>amount ing two</li></li></ul></div>
                 </ul>
         </div>
     </section>
