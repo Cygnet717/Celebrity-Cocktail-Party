@@ -41,9 +41,9 @@
         <div id="cocktailResluts" class="hidden">
                 <h3>Results:</h3>
                 <ul class="cocResults">
-                    <li class="totheside"><button type='submit' class='findingredients' value='drinkid'>drink name</button><br><img src='https://www.thecocktaildb.com/images/media/drink/qyqtpv1468876144.jpg' class="cocimage"><div>Instructions: blah blah blah <br>Ingredients:<br><ul class="ingredientList"><li>amount ing one</li><li>amount ing two</li></ul></div></li>
+                    <li class="totheside"><div><label >drink name</label><br><br><button type="submit" class="deleteItem">Delete</button></div><img src='https://www.thecocktaildb.com/images/media/drink/qyqtpv1468876144.jpg' class="cocimage"><div>Instructions: blah blah blah <br>Ingredients:<br><ul class="ingredientList"><li>amount ing one</li><li>amount ing two</li></ul></div></li>
 
-                    <li class="totheside"><button type='submit' class='findingredients' value='${results.drinks[i].idDrink}'>${results.drinks[i].strDrink}</button><br><img src='' class="cocimage"></li>
+                    <li class="totheside"><div><button type='submit' class='findingredients' value='${results.drinks[i].idDrink}'>drink name</button><br><button type="submit" class="deleteItem">Delete</button></div><img src='https://www.thecocktaildb.com/images/media/drink/qyqtpv1468876144.jpg' class="cocimage"></li>
                 </ul>
         </div>
     </section>
