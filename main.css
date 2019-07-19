@@ -26,6 +26,9 @@
   display: flex;
 }
 
+.inactive {
+  color: blue;
+}
 
 .ingredientList {
   list-style: none;
