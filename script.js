@@ -239,7 +239,7 @@ function displayShortCocResults(results){
     $('.cocResults').empty();
     $('#cocktailResluts').removeClass('hidden');
     for (let i=0; i<results.drinks.length; i++){
-    $('.cocResults').append(`<li class="totheside"><div><button type='submit' class='findingredients' value='${results.drinks[i].idDrink}'>${results.drinks[i].strDrink}</button><br><button type="submit" class="deleteItem">Delete</button></div><img src='${results.drinks[i].strDrinkThumb}' class="cocimage"></li>`);
+    $('.cocResults').append(`<li class="totheside"><div><button type='submit' class='findingredients' value='${results.drinks[i].idDrink}'>${results.drinks[i].strDrink}</button><br><button type="submit" class="deleteItem">Not Interested</button></div><img src='${results.drinks[i].strDrinkThumb}' class="cocimage"></li>`);
     }
 }
 
@@ -248,7 +248,7 @@ function displayCocResults(results){
     $('.cocResults').empty();
     $('#cocktailResluts').removeClass('hidden');
     for (let i=0; i<results.drinks.length; i++){
-    $('.cocResults').append(`<li class="totheside"><div><label>${results.drinks[i].strDrink}</label><br><button type="submit" class="deleteItem">Delete</button></div><img src='${results.drinks[i].strDrinkThumb}' class="cocimage"><div>Instructions: ${results.drinks[i].strInstructions}<br>Ingredients:<br><ul class="ingredientList"><li>${results.drinks[i].strMeasure1} ${results.drinks[i].strIngredient1}</li><li>${results.drinks[i].strMeasure2} ${results.drinks[i].strIngredient2}</li><li>${results.drinks[i].strMeasure3} ${results.drinks[i].strIngredient3}</li><li>${results.drinks[i].strMeasure4} ${results.drinks[i].strIngredient4}</li><li>${results.drinks[i].strMeasure5} ${results.drinks[i].strIngredient5}</li><li>${results.drinks[i].strMeasure6} ${results.drinks[i].strIngredient6}</li><li>${results.drinks[i].strMeasure7} ${results.drinks[i].strIngredient7}</li><li>${results.drinks[i].strMeasure8} ${results.drinks[i].strIngredient8}</li></ul></div></li>`)
+    $('.cocResults').append(`<li class="totheside"><div><label>${results.drinks[i].strDrink}</label><br><button type="submit" class="deleteItem">Delete</button></div><img src='${results.drinks[i].strDrinkThumb}' class="cocimage"><div>Instructions: ${results.drinks[i].strInstructions}<br>Ingredients:<br><ul class="ingredientList"><li>${results.drinks[i].strMeasure1} ${results.drinks[i].strIngredient1}</li><li>${results.drinks[i].strMeasure2} ${results.drinks[i].strIngredient2}</li><li>${results.drinks[i].strMeasure3} ${results.drinks[i].strIngredient3}</li><li>${results.drinks[i].strMeasure4} ${results.drinks[i].strIngredient4}</li><li>${results.drinks[i].strMeasure5} ${results.drinks[i].strIngredient5}</li><li>${results.drinks[i].strMeasure6} ${results.drinks[i].strIngredient6}</li><li>${results.drinks[i].strMeasure7} ${results.drinks[i].strIngredient7}</li></ul></div></li>`)
         }
 }
 
