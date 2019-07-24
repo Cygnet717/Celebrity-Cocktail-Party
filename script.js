@@ -80,7 +80,7 @@ function getApps(URL){
     })
     .then(responseJson => displayAppResults(responseJson))
     .catch (err =>{
-        $('.resluts').text(`Something went wrong: ${err.message}`)
+        $('.results').text(`Something went wrong: ${err.message}`)
     })
 }
 
@@ -174,6 +174,7 @@ const byNameURL= 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
 function cocktailByName(){
     $('.submitCocktailName').on('click', event=>{
         event.preventDefault();
+        $('.cocResults').empty();
         const cocktailname= $('.cocktailname').val();
         console.log(cocktailname);
         fetchNameURL(cocktailname);
@@ -191,7 +192,7 @@ function fetchNameURL(name){
     })
     .then(responseJson => displayCocResults(responseJson))
     .catch (err =>{
-        $('.resluts').text(`Something went wrong: ${err.message}`)
+        $('.results').text(`Something went wrong: ${err.message}`)
     })
 }
 
@@ -200,7 +201,9 @@ const byIngredientURL = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?
 function cocktailByIngredient(){
     $('.submitCocktailIngredient').on('click', event=>{
         event.preventDefault();
-        const cocktailIng= $('.cocktailIngredient').val();
+        $('.cocResults').empty();
+        var cocktailIng= $('.cocktailIngredient').val();
+        cocktailIng = cocktailIng.replace(/\s/g, '%20');
         console.log(cocktailIng);
         fetchIngURL(cocktailIng);
     })
@@ -218,7 +221,7 @@ function fetchIngURL(name){
     })
     .then(responseJson => displayShortCocResults(responseJson))
     .catch (err =>{
-        $('.resluts').text(`Something went wrong: ${err.message}`)
+        $('.results').text(`Something went wrong: ${err.message}`)
     })
 }
 
@@ -236,15 +239,18 @@ function generateNonAlcoholic(){
         })
         .then(responseJson => displayShortCocResults(responseJson))
         .catch (err =>{
-            $('.resluts').text(`Something went wrong: ${err.message}`)
+            $('.results').text(`Something went wrong: ${err.message}`)
         })
         })
 }
 
 function displayShortCocResults(results){
-    console.log(results);
+    console.log('Here are the results: '+results);
     $('.cocResults').empty();
-    $('#cocktailResluts').removeClass('hidden');
+    $('#cocktailResults').removeClass('hidden');
+    if (results == ''){
+        alert ('dont recognize that ingredient.')
+    }
     for (let i=0; i<results.drinks.length; i++){
     $('.cocResults').append(`<li class="totheside"><div><button type='submit' class='findingredients' value='${results.drinks[i].idDrink}'>${results.drinks[i].strDrink}</button><br><button type="submit" class="deleteItem">Not Interested</button></div><img src='${results.drinks[i].strDrinkThumb}' class="cocimage"></li>`);
     }
@@ -252,15 +258,25 @@ function displayShortCocResults(results){
 
 function displayCocResults(results){
     console.log(results);
-    $('.cocResults').empty();
-    $('#cocktailResluts').removeClass('hidden');
+    if (results.drinks == null){
+        alert("That name is not recognized, please try another.")
+    }
+    $('#cocktailResults').removeClass('hidden');
     for (let i=0; i<results.drinks.length; i++){
-        /*if (results.drinks[i].strMeasure7 == 'null'){
-            let measure = '';
-        } else {
-            let measure = results.drinks[i].strMeasure7
-        }*/
-    $('.cocResults').append(`<li class="totheside"><div><label>${results.drinks[i].strDrink}</label><br><button type="submit" class="deleteItem">Delete</button></div><img src='${results.drinks[i].strDrinkThumb}' class="cocimage"><div>Instructions: ${results.drinks[i].strInstructions}<br>Ingredients:<br><ul class="ingredientList"><li>${results.drinks[i].strMeasure1} ${results.drinks[i].strIngredient1}</li><li>${results.drinks[i].strMeasure2} ${results.drinks[i].strIngredient2}</li><li>${results.drinks[i].strMeasure3} ${results.drinks[i].strIngredient3}</li><li>${results.drinks[i].strMeasure4} ${results.drinks[i].strIngredient4}</li><li>${results.drinks[i].strMeasure5} ${results.drinks[i].strIngredient5}</li><li>${results.drinks[i].strMeasure6} ${results.drinks[i].strIngredient6}</li><li>${results.drinks[i].strMeasure7} ${results.drinks[i].strIngredient7}</li></ul></div></li>`)
+        var displayString =`<li class="totheside"><div><label>${results.drinks[i].strDrink}</label><br><button type="submit" class="deleteItem">Delete</button></div><img src='${results.drinks[i].strDrinkThumb}' class="cocimage"><div>Instructions: ${results.drinks[i].strInstructions}<br>Ingredients:<br><ul class="ingredientList">`;
+
+        for (let j=1; j<=10; j++){
+            var localMea ='strMeasure'+j;
+            var localIng ='strIngredient'+j;
+
+            if (results.drinks[i][localMea] != null){
+                displayString =displayString + `<li>${results.drinks[i][localMea]} ${results.drinks[i][localIng]}</li>`
+                        }
+        }
+        displayString = displayString + `</ul>
+        </div>
+        </li>`;
+    $('.cocResults').append(displayString);
     }
 }
 
@@ -270,7 +286,7 @@ function generateRandomCocktail(){
     $('.random').on('click', event =>{
         event.preventDefault();
         $('.cocResults').empty();
-        $('#cocktailResluts').removeClass('hidden');
+        $('#cocktailResults').removeClass('hidden');
         fetch(randCoURL)
         .then(response =>{
             if (response.ok){
@@ -280,9 +296,29 @@ function generateRandomCocktail(){
         })
         .then(responseJson => displayCocResults(responseJson))
         .catch (err =>{
-            $('.resluts').text(`Something went wrong: ${err.message}`)
+            $('.results').text(`Something went wrong: ${err.message}`)
         })
         })
+}
+
+function displayIngList (results, target){
+    console.log(results);
+    for (let i=0; i<results.drinks.length; i++){
+        var displayString =`<div>Instructions: ${results.drinks[i].strInstructions}<br>Ingredients:<br><ul class="ingredientList">`;
+
+        for (let j=1; j<=10; j++){
+            var localMea ='strMeasure'+j;
+            var localIng ='strIngredient'+j;
+
+            if (results.drinks[i][localMea] != null){
+                displayString =displayString + `<li>${results.drinks[i][localMea]} ${results.drinks[i][localIng]}</li>`
+                        }
+        }
+        displayString = displayString + `</ul>
+        </div>
+        </li>`;
+    $(target).append(displayString);
+    }
 }
 
 const findbyidURL='https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i='
@@ -295,6 +331,7 @@ function pullCocIngredients(){
         console.log (drinkid);
         var url= findbyidURL + drinkid;
         $(event.target).removeClass('findingredients')
+        var target = $(event.target).closest("li")
         fetch (url)
         .then(response =>{
             if (response.ok){
@@ -302,7 +339,7 @@ function pullCocIngredients(){
             }
             throw new Error(response.statusText);
         })
-        .then(responseJson => $(event.target).closest("li").append(`<div>Instructions: ${responseJson.drinks[0].strInstructions}<br>Ingredients:<br><ul class="ingredientList"><li>${responseJson.drinks[0].strMeasure1} ${responseJson.drinks[0].strIngredient1}</li><li>${responseJson.drinks[0].strMeasure2} ${responseJson.drinks[0].strIngredient2}</li><li>${responseJson.drinks[0].strMeasure3} ${responseJson.drinks[0].strIngredient3}</li><li>${responseJson.drinks[0].strMeasure4} ${responseJson.drinks[0].strIngredient4}</li><li>${responseJson.drinks[0].strMeasure5} ${responseJson.drinks[0].strIngredient5}</li><li>${responseJson.drinks[0].strMeasure6} ${responseJson.drinks[0].strIngredient6}</li><li>${responseJson.drinks[0].strMeasure7} ${responseJson.drinks[0].strIngredient7}</li></ul></div>`))
+        .then(responseJson => displayIngList(responseJson, target))
         .catch (err=>{
             $('.cocResults').text(`Something went wrong: ${err.message}`)
         })
