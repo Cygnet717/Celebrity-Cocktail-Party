@@ -61,9 +61,12 @@ function watchNavClicks() {
 function displayAppResults(responseJson){
     console.log (responseJson);
     $('.appResults').empty();
+    if (responseJson.count == 0){
+        alert ("We don't recognise that ingredient")
+    }
     $('#appetizerResults').removeClass('hidden');
     for (let i=0; i<responseJson.recipes.length; i++){
-    $('.appResults').append(`<li>${responseJson.recipes[i].title}<br><img src='${responseJson.recipes[i].image_url}' class="appimage"><br><a target="_blank" href='${responseJson.recipes[i].source_url}'>View Recipe</a><br><a target="_blank" href='${responseJson.recipes[i].publisher_url}'>${responseJson.recipes[i].publisher}</a></li>`)
+    $('.appResults').append(`<li>${responseJson.recipes[i].title}<br><img src='${responseJson.recipes[i].image_url}' class="appimage"><br><a target="_blank" href='${responseJson.recipes[i].source_url}'>View Recipe</a><br>Publisher:<a target="_blank" href='${responseJson.recipes[i].publisher_url}'>${responseJson.recipes[i].publisher}</a></li>`)
     }
 }
 
@@ -83,7 +86,7 @@ function getApps(URL){
 
 const food2forkURL = 'https://www.food2fork.com/api/search?'
 
-function appURL(ingredient){
+function makeAppURL(ingredient){
     const queryList = ingredient.replace(/\s+/g, '');
     const appURL = food2forkURL + 'q=appetizer,' + queryList + '&key=613b3cd66c7ab01c4ea3b354190b9fb6'
     console.log (appURL);
@@ -95,7 +98,7 @@ function watchAppIngredientSearch(){
         event.preventDefault();
         const appIngredient= $('.appIngredient').val();
         console.log(appIngredient);
-        appURL(appIngredient);
+        makeAppURL(appIngredient);
     })
 }
 
@@ -156,6 +159,9 @@ function watchCelebritySearch(){
         event.preventDefault();
         const femaleNames= $('.femaleNames').val();
         const maleNames =$('.maleNames').val();
+        if (femaleNames>10 || maleNames>10){
+            alert('Too many names requested. We can only give you 10 at this time.')
+        }
         console.log("the number of female names: " +femaleNames);
         console.log("the number of male names: " +maleNames);
         generateFRandom(femaleNames);
@@ -202,6 +208,7 @@ function cocktailByIngredient(){
 
 function fetchIngURL(name){
     const ingURL = byIngredientURL+name;
+    console.log (ingURL)
     fetch(ingURL)
     .then(response =>{
         if (response.ok){
@@ -248,8 +255,13 @@ function displayCocResults(results){
     $('.cocResults').empty();
     $('#cocktailResluts').removeClass('hidden');
     for (let i=0; i<results.drinks.length; i++){
+        /*if (results.drinks[i].strMeasure7 == 'null'){
+            let measure = '';
+        } else {
+            let measure = results.drinks[i].strMeasure7
+        }*/
     $('.cocResults').append(`<li class="totheside"><div><label>${results.drinks[i].strDrink}</label><br><button type="submit" class="deleteItem">Delete</button></div><img src='${results.drinks[i].strDrinkThumb}' class="cocimage"><div>Instructions: ${results.drinks[i].strInstructions}<br>Ingredients:<br><ul class="ingredientList"><li>${results.drinks[i].strMeasure1} ${results.drinks[i].strIngredient1}</li><li>${results.drinks[i].strMeasure2} ${results.drinks[i].strIngredient2}</li><li>${results.drinks[i].strMeasure3} ${results.drinks[i].strIngredient3}</li><li>${results.drinks[i].strMeasure4} ${results.drinks[i].strIngredient4}</li><li>${results.drinks[i].strMeasure5} ${results.drinks[i].strIngredient5}</li><li>${results.drinks[i].strMeasure6} ${results.drinks[i].strIngredient6}</li><li>${results.drinks[i].strMeasure7} ${results.drinks[i].strIngredient7}</li></ul></div></li>`)
-        }
+    }
 }
 
 const randCoURL= 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
@@ -282,6 +294,7 @@ function pullCocIngredients(){
         const drinkid= $(event.target).val();
         console.log (drinkid);
         var url= findbyidURL + drinkid;
+        $(event.target).removeClass('findingredients')
         fetch (url)
         .then(response =>{
             if (response.ok){
@@ -289,7 +302,7 @@ function pullCocIngredients(){
             }
             throw new Error(response.statusText);
         })
-        .then(responseJson => $(event.target).closest("li").append(`<div>Instructions: ${responseJson.drinks[0].strInstructions}<br>Ingredients:<br><ul class="ingredientList"><li>${responseJson.drinks[0].strMeasure1} ${responseJson.drinks[0].strIngredient1}</li><li>${responseJson.drinks[0].strMeasure2} ${responseJson.drinks[0].strIngredient2}</li><li>${responseJson.drinks[0].strMeasure3} ${responseJson.drinks[0].strIngredient3}</li><li>${responseJson.drinks[0].strMeasure4} ${responseJson.drinks[0].strIngredient4}</li><li>${responseJson.drinks[0].strMeasure5} ${responseJson.drinks[0].strIngredient5}</li><li>${responseJson.drinks[0].strMeasure6} ${responseJson.drinks[0].strIngredient6}</li><li>${responseJson.drinks[0].strMeasure7} ${responseJson.drinks[0].strIngredient7}</li><li>${responseJson.drinks[0].strMeasure8} ${responseJson.drinks[0].strIngredient8}</li></ul></div>`))
+        .then(responseJson => $(event.target).closest("li").append(`<div>Instructions: ${responseJson.drinks[0].strInstructions}<br>Ingredients:<br><ul class="ingredientList"><li>${responseJson.drinks[0].strMeasure1} ${responseJson.drinks[0].strIngredient1}</li><li>${responseJson.drinks[0].strMeasure2} ${responseJson.drinks[0].strIngredient2}</li><li>${responseJson.drinks[0].strMeasure3} ${responseJson.drinks[0].strIngredient3}</li><li>${responseJson.drinks[0].strMeasure4} ${responseJson.drinks[0].strIngredient4}</li><li>${responseJson.drinks[0].strMeasure5} ${responseJson.drinks[0].strIngredient5}</li><li>${responseJson.drinks[0].strMeasure6} ${responseJson.drinks[0].strIngredient6}</li><li>${responseJson.drinks[0].strMeasure7} ${responseJson.drinks[0].strIngredient7}</li></ul></div>`))
         .catch (err=>{
             $('.cocResults').text(`Something went wrong: ${err.message}`)
         })
