@@ -64,6 +64,9 @@ function displayAppResults(responseJson){
     if (responseJson.count == 0){
         alert ("We don't recognise that ingredient")
     }
+    if (responseJson.recipes[0].recipe_id == '47349'){
+        $('.topRated').prepend("<p>We don't recognise that ingredient. Here is our most popular recipes.</p>")
+    }
     $('#appetizerResults').removeClass('hidden');
     for (let i=0; i<responseJson.recipes.length; i++){
     $('.appResults').append(`<li>${responseJson.recipes[i].title}<br><img src='${responseJson.recipes[i].image_url}' class="appimage"><br><a target="_blank" href='${responseJson.recipes[i].source_url}'>View Recipe</a><br>Publisher:<a target="_blank" href='${responseJson.recipes[i].publisher_url}'>${responseJson.recipes[i].publisher}</a></li>`)
@@ -87,7 +90,7 @@ function getApps(URL){
 const food2forkURL = 'https://www.food2fork.com/api/search?'
 
 function makeAppURL(ingredient){
-    const queryList = ingredient.replace(/\s+/g, '');
+    const queryList = ingredient.replace(/\s+/g, '%20');
     const appURL = food2forkURL + 'q=appetizer,' + queryList + '&key=613b3cd66c7ab01c4ea3b354190b9fb6'
     console.log (appURL);
     getApps(appURL);
