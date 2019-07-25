@@ -58,6 +58,7 @@ function watchNavClicks() {
     });
 }
 
+//appetizer functions
 function displayAppResults(responseJson){
     console.log (responseJson);
     $('.appResults').empty();
@@ -66,10 +67,10 @@ function displayAppResults(responseJson){
     }
     $('#appetizerResults').removeClass('hidden');
     for (let i=0; i<responseJson.recipes.length; i++){
-    $('.appResults').append(`<li>${responseJson.recipes[i].title}<br />
+    $('.appResults').append(`<li class="appli">${responseJson.recipes[i].title}<br />
     <img src='${responseJson.recipes[i].image_url}' class="appimage"><br />
-    <a target="_blank" href='${responseJson.recipes[i].source_url}'>View Recipe</a><br />
-    Publisher:<a target="_blank" href='${responseJson.recipes[i].publisher_url}'>${responseJson.recipes[i].publisher}</a></li>`)
+    <a target="_blank" href='${responseJson.recipes[i].source_url}' class="overlay">View Recipe</a><br />
+    Publisher:<a target="_blank" href='${responseJson.recipes[i].publisher_url}'>${responseJson.recipes[i].publisher}</a></li><br>`)
     }
 }
 
@@ -105,6 +106,7 @@ function watchAppIngredientSearch(){
     })
 }
 
+// Celebrity functions
 function generateFRandom(numNames){
     $('.femaleCelResults').empty();
     $('#femaleCelebrityResults').removeClass('hidden');
@@ -176,6 +178,8 @@ function watchCelebritySearch(){
     })
 };
 
+
+// Cocktail functions
 const byNameURL= 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
 
 function cocktailByName(){
@@ -261,7 +265,7 @@ function displayShortCocResults(results){
     for (let i=0; i<results.drinks.length; i++){
     $('.cocResults').append(`<li class="totheside">
     <div>
-    <button type='submit' class='findingredients' value='${results.drinks[i].idDrink}'>${results.drinks[i].strDrink}</button><br />
+    <button type='submit' class='findingredients' value='${results.drinks[i].idDrink}'>${results.drinks[i].strDrink}</button><br>
     <button type="submit" class="deleteItem">Not Interested</button>
     </div>
     <img src='${results.drinks[i].strDrinkThumb}' class="cocimage"></li>`);
@@ -275,7 +279,15 @@ function displayCocResults(results){
     }
     $('#cocktailResults').removeClass('hidden');
     for (let i=0; i<results.drinks.length; i++){
-        var displayString =`<li class="totheside"><div><label>${results.drinks[i].strDrink}</label><br><button type="submit" class="deleteItem">Delete</button></div><img src='${results.drinks[i].strDrinkThumb}' class="cocimage"><div>Instructions: ${results.drinks[i].strInstructions}<br>Ingredients:<br><ul class="ingredientList">`;
+        var displayString =`<li class="totheside">
+        <div>
+        <label>${results.drinks[i].strDrink}</label><br>
+        <button type="submit" class="deleteItem">Delete</button>
+        </div>
+        <img src='${results.drinks[i].strDrinkThumb}' class="cocimage">
+        <div>Instructions: ${results.drinks[i].strInstructions}<br>
+        Ingredients:<br>
+        <ul class="ingredientList">`;
 
         for (let j=1; j<=10; j++){
             var localMea ='strMeasure'+j;
@@ -316,7 +328,9 @@ function generateRandomCocktail(){
 function displayIngList (results, target){
     console.log(results);
     for (let i=0; i<results.drinks.length; i++){
-        var displayString =`<div>Instructions: ${results.drinks[i].strInstructions}<br>Ingredients:<br><ul class="ingredientList">`;
+        var displayString =`<div>Instructions: ${results.drinks[i].strInstructions}<br>
+        Ingredients:<br>
+        <ul class="ingredientList">`;
 
         for (let j=1; j<=10; j++){
             var localMea ='strMeasure'+j;

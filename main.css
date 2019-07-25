@@ -134,3 +134,38 @@ h3, p {
 .ingredientList {
   list-style: none;
 }
+
+.femaleCelResults, .maleCelResults {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.femaleCelResults >li, .maleCelResults >li {
+  margin: 5px;
+  padding: 5px;
+  width: fit-content;
+  list-style: none;
+  text-align: center;
+  border: 1px solid rgba(94, 94, 94, 0.644);
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left:25%;
+  text-decoration: none;
+  font-weight: 500;
+  color: black;
+  width: fit-content;
+  text-align: center;
+  z-index: 1;
+  padding: 5px;
+  background: rgba(128, 128, 128, 0.562);
+}
+
+.appli {
+  position: relative;
+  width: fit-content;
+  text-align: center;
+}

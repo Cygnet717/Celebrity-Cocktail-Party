@@ -51,11 +51,29 @@
         </form>
         <div id="cocktailResults" class="hidden">
                 <h3 class="results">Results:</h3>
-                <ul class="cocResults">
-                    <li class="totheside"><div><label >drink name</label><br><br><button type="submit" class="deleteItem">Delete</button></div><img src='https://www.thecocktaildb.com/images/media/drink/qyqtpv1468876144.jpg' class="cocimage"><div>Instructions: blah blah blah <br>Ingredients:<br><ul class="ingredientList"><li>amount ing one</li><li>amount ing two</li></ul></div></li>
+                <ol class="cocResults">
+                    <li class="totheside">
+                        <div>
+                            <label >drink name</label><br><br>
+                            <button type="submit" class="deleteItem">Delete</button>
+                        </div>
+                        <img src='https://www.thecocktaildb.com/images/media/drink/qyqtpv1468876144.jpg' class="cocimage">
+                        <div>Instructions: blah blah blah <br>
+                            Ingredients:<br>
+                            <ul class="ingredientList">
+                                <li>amount ing one</li><li>amount ing two</li>
+                            </ul>
+                        </div>
+                    </li>
 
-                    <li class="totheside"><div><button type='submit' class='findingredients' value='${results.drinks[i].idDrink}'>drink name</button><br><button type="submit" class="deleteItem">Delete</button></div><img src='https://www.thecocktaildb.com/images/media/drink/qyqtpv1468876144.jpg' class="cocimage"></li>
-                </ul>
+                    <li class="totheside">
+                        <div>
+                            <button type='submit' class='findingredients' value='${results.drinks[i].idDrink}'>drink name</button><br>
+                            <button type="submit" class="deleteItem">Delete</button>
+                        </div>
+                        <img src='https://www.thecocktaildb.com/images/media/drink/qyqtpv1468876144.jpg' class="cocimage">
+                    </li>
+                </ol>
         </div>
     </section>
 
@@ -74,9 +92,9 @@
         </form>
         <div id="appetizerResults" class="hidden">
             <h3 class="topRated results">Results:</h3>
-            <ul class="appResults">
+            <ol class="appResults">
                 <li>title<br><img class="appimage" src=''><br><a target="_blank" href=''>View Recipe</a><br><a target="_blank" href=''>publisher</a></li>
-            </ul>
+            </ol>
         </div>
     </section>
 
