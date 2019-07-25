@@ -61,15 +61,15 @@ function watchNavClicks() {
 function displayAppResults(responseJson){
     console.log (responseJson);
     $('.appResults').empty();
-    if (responseJson.count == 0){
-        alert ("We don't recognise that ingredient")
-    }
-    if (responseJson.recipes[0].recipe_id == '47349'){
-        $('.topRated').prepend("<p>We don't recognise that ingredient. Here is our most popular recipes.</p>")
+    if (responseJson.recipes[0].recipe_id == '47349' || responseJson.count == 0){
+        $('.appResults').prepend("<p>We don't recognise that ingredient. Here is our most popular recipes.</p>")
     }
     $('#appetizerResults').removeClass('hidden');
     for (let i=0; i<responseJson.recipes.length; i++){
-    $('.appResults').append(`<li>${responseJson.recipes[i].title}<br><img src='${responseJson.recipes[i].image_url}' class="appimage"><br><a target="_blank" href='${responseJson.recipes[i].source_url}'>View Recipe</a><br>Publisher:<a target="_blank" href='${responseJson.recipes[i].publisher_url}'>${responseJson.recipes[i].publisher}</a></li>`)
+    $('.appResults').append(`<li>${responseJson.recipes[i].title}<br />
+    <img src='${responseJson.recipes[i].image_url}' class="appimage"><br />
+    <a target="_blank" href='${responseJson.recipes[i].source_url}'>View Recipe</a><br />
+    Publisher:<a target="_blank" href='${responseJson.recipes[i].publisher_url}'>${responseJson.recipes[i].publisher}</a></li>`)
     }
 }
 
@@ -128,7 +128,9 @@ console.log (userArray)
 
     for (let i=0; i<userArray.length; i++){
         let location = userArray[i];
-        $('.femaleCelResults').append(`<li>${femaleCelebrity[location].name}<br><img class="celimage" src='${femaleCelebrity[location].img}'></li>`);}
+        $('.femaleCelResults').append(`<li>${femaleCelebrity[location].name}<br />
+        <img class="celimage" src='${femaleCelebrity[location].img}'></li>`);
+    }
 };
 
 function generateMRandom(numNames){
@@ -154,7 +156,9 @@ var userArray = a.slice(0, numNames);
 console.log (userArray)
     for (let i=0; i<userArray.length; i++){
         let location = userArray[i];
-        $('.maleCelResults').append(`<li>${maleCelebrity[location].name}<br><img class="celimage" src='${maleCelebrity[location].img}'></li>`);}
+        $('.maleCelResults').append(`<li>${maleCelebrity[location].name}<br>
+        <img class="celimage" src='${maleCelebrity[location].img}'></li>`);
+    }
 };
 
 function watchCelebritySearch(){
@@ -255,7 +259,12 @@ function displayShortCocResults(results){
         alert ('dont recognize that ingredient.')
     }
     for (let i=0; i<results.drinks.length; i++){
-    $('.cocResults').append(`<li class="totheside"><div><button type='submit' class='findingredients' value='${results.drinks[i].idDrink}'>${results.drinks[i].strDrink}</button><br><button type="submit" class="deleteItem">Not Interested</button></div><img src='${results.drinks[i].strDrinkThumb}' class="cocimage"></li>`);
+    $('.cocResults').append(`<li class="totheside">
+    <div>
+    <button type='submit' class='findingredients' value='${results.drinks[i].idDrink}'>${results.drinks[i].strDrink}</button><br />
+    <button type="submit" class="deleteItem">Not Interested</button>
+    </div>
+    <img src='${results.drinks[i].strDrinkThumb}' class="cocimage"></li>`);
     }
 }
 

@@ -2,14 +2,119 @@
     box-sizing: border-box;
   }
 
-.homenav, .pagenav {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+.hidden {
+    display: none;
+}
+
+html { 
+  background: url(https://i.imgur.com/d5BkuOn.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+input[type=text]{
+  border: 2px solid white;
+}
+
+input[type=text]:hover {
+  border: 2px solid rgb(99, 151, 247);
+}
+
+.results {
+  text-align: left;
+}
+
+h1 {
+  margin-left: auto;
+  margin-right: auto;
   width: fit-content;
 }
 
-.hidden {
-    display: none;
+h3, p {
+  width: 75%;   
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.cocktails, .appetizers, .celebrity, .homebutton {
+  height: 66px;
+  width: 100px;
+  font-weight: bold;
+  opacity: 0.8;
+  border: none;
+  border-radius: 5px;
+}
+
+.cocnav > button {
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(94, 94, 94, 0.808);
+  color: white;
+  height: 50px;
+  width: 100px;
+}
+
+.homebutton {
+  background: url(https://i.imgur.com/5OhVzT1.jpg) no-repeat center center;
+  background-size: 100px;
+  color: white;
+}
+
+.cocktails {
+  background: url(https://i.imgur.com/li7Yby9.jpg) no-repeat center center;
+  background-size: 100px;  
+}
+
+.appetizers {
+  background: url(https://i.imgur.com/YNUtyNn.jpg) no-repeat center center;
+  background-size: 100px;
+}
+
+.celebrity {
+  background: url(https://i.imgur.com/PAVxAgW.jpg) no-repeat center center;
+  background-size: 100px;
+}
+
+.inactive {
+  color: blue;
+  height: 66px;
+  width: 100px;
+  opacity: 0.8;
+  border: none;
+  border-radius: 5px;
+}
+
+.homenav, .pagenav, .cocnav {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.submit {
+  background-color: rgba(94, 94, 94, 0.644);
+  color: white;
+  font-weight: 400;
+  border: none;
+  opacity: 0.8;
+  border-radius: 2px;
+  cursor: pointer;
+}
+  
+.submit::after{
+  opacity: .5;
+  transition: 0.5s;
+}
+
+.submit:hover {
+  opacity: 1;
+  right: 0;
 }
 
 .appimage, .cocimage {
@@ -24,10 +129,6 @@
 
 .totheside{
   display: flex;
-}
-
-.inactive {
-  color: blue;
 }
 
 .ingredientList {

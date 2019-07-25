@@ -21,25 +21,36 @@
 
     <section class="cocktailsView">
         <h1>Celebrity Cocktail Party</h1>
-        <nav class="pagenav"><button class="inactive">Cocktails</button><button class="appetizers">Appetizers</button><button class="celebrity">Celebrity Names</button><button class="homebutton">Home</button></nav>
+        <nav class="pagenav">
+            <button class="inactive cocktails">Cocktails</button>
+            <button class="appetizers">Appetizers</button>
+            <button class="celebrity">Celebrity Names</button>
+            <button class="homebutton">Home</button>
+        </nav>
         <h3>Cocktails</h3>
-        <h4>Search for cocktail by</h4>
-        <button class="byname">Cocktail Name</button><button class="byingredient">Ingredient</button><button class="nonalcoholic">Non-Alcoholic</button><button class="random">Random Cocktail</button>
+        <h4>Search for a cocktail:</h4>
+        <section class="cocnav">
+            <button class="byname">Cocktail Name</button>
+            <button class="byingredient">Ingredient</button>
+            <button class="nonalcoholic">Non-Alcoholic</button>
+            <button class="random">Random Cocktail</button>
+        </section>
         <form>
             <div class="namediv">
-            <label>by Cocktail name:<br></label>
-            <input type="text" class="cocktailname"><br>
-            <input type="submit" class="submitCocktailName" value="Search Name">
+            <br>
+            <label>Cocktail Name:<br></label>
+            <input type="text" class="cocktailname"><br><br>
+            <input type="submit" class="submitCocktailName submit" value="Search Name">
             </div>
         </form>
         <form>
-            <div class="ingredientdiv">
-            <label>by ingredient:<br></label>
-            <input type="text" class="cocktailIngredient"><br>
-            <input type="submit" class="submitCocktailIngredient" value="Search Ingredient"></div>
+            <div class="ingredientdiv"><br>
+            <label>Ingredient:<br></label>
+            <input type="text" class="cocktailIngredient"><br><br>
+            <input type="submit" class="submitCocktailIngredient submit" value="Search Ingredient"></div>
         </form>
         <div id="cocktailResults" class="hidden">
-                <h3>Results:</h3>
+                <h3 class="results">Results:</h3>
                 <ul class="cocResults">
                     <li class="totheside"><div><label >drink name</label><br><br><button type="submit" class="deleteItem">Delete</button></div><img src='https://www.thecocktaildb.com/images/media/drink/qyqtpv1468876144.jpg' class="cocimage"><div>Instructions: blah blah blah <br>Ingredients:<br><ul class="ingredientList"><li>amount ing one</li><li>amount ing two</li></ul></div></li>
 
@@ -50,15 +61,19 @@
 
     <section class="appetizersView">
         <h1>Celebrity Cocktail Party</h1>
-        <nav class="pagenav"><button class="cocktails">Cocktails</button><button class="inactive">Appetizers</button><button class="celebrity">Celebrity Names</button><button class="homebutton">Home</button></nav>
+        <nav class="pagenav">
+            <button class="cocktails">Cocktails</button>
+            <button class="inactive appetizers">Appetizers</button>
+            <button class="celebrity">Celebrity Names</button>
+            <button class="homebutton">Home</button></nav>
         <form class="appetizerform">
             <h3>Appetizers</h3>
             Appetizer Ingredient(s):<br>
-            <input type="text" class="appIngredient">*separate ingredients by a comma<br>
-            <input type="submit" class="submitAppIngredient" value="Search Ingredient"><br>
+            <input type="text" class="appIngredient">*separate ingredients by a comma<br><br>
+            <input type="submit" class="submitAppIngredient submit" value="Search Ingredient"><br>
         </form>
         <div id="appetizerResults" class="hidden">
-            <h3 class="topRated">Results:</h3>
+            <h3 class="topRated results">Results:</h3>
             <ul class="appResults">
                 <li>title<br><img class="appimage" src=''><br><a target="_blank" href=''>View Recipe</a><br><a target="_blank" href=''>publisher</a></li>
             </ul>
@@ -67,24 +82,28 @@
 
     <section class="celebrityView">
         <h1>Celebrity Cocktail Party</h1>
-        <nav class="pagenav"><button class="cocktails">Cocktails</button><button class="appetizers">Appetizers</button><button class="inactive">Celebrity Names</button><button class="homebutton">Home</button></nav>
+        <nav class="pagenav">
+            <button class="cocktails">Cocktails</button>
+            <button class="appetizers">Appetizers</button>
+            <button class="inactive celebrity">Celebrity Names</button>
+            <button class="homebutton">Home</button></nav>
         <form class="celebrityform">
             <h3>Celebrity Names</h3>
             How many female:(max 10)<br>
-            <input type="number" class="femaleNames" value=""><br>
+            <input type="number" class="femaleNames" value=""><br><br>
             How many male:(max 10)<br>
-            <input type="number" class="maleNames" value=""><br>
-            <input type="submit" class="submitCelebrity" value="Search Celebrity Names">
+            <input type="number" class="maleNames" value=""><br><br>
+            <input type="submit" class="submitCelebrity submit" value="Search Celebrity Names">
             
         </form>
         <div id="femaleCelebrityResults" class="hidden">
-                <h3>Female Results:</h3>
+                <h3 class="results">Female Results:</h3>
                 <ul class="femaleCelResults">
                     <li>name<br><img class="celimage" src=''></li>
                 </ul>
         </div>
         <div id="maleCelebrityResults" class="hidden">
-            <h3>Male Results:</h3>
+            <h3 class="results">Male Results:</h3>
                 <ul class="maleCelResults">
                     <li>name<br><img class="celimage" src=''></li>
                 </ul>
