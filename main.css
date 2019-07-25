@@ -14,21 +14,12 @@ html {
   background-size: cover;
 }
 
-button:hover {
-  cursor: pointer;
-  opacity: 1;
-}
-
 input[type=text]{
   border: 2px solid white;
 }
 
 input[type=text]:hover {
   border: 2px solid rgb(99, 151, 247);
-}
-
-.results {
-  text-align: left;
 }
 
 h1 {
@@ -42,6 +33,13 @@ h3, p {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+}
+
+/* Navigation Buttons */
+
+button:hover {
+  cursor: pointer;
+  opacity: 1;
 }
 
 .cocktails, .appetizers, .celebrity, .homebutton {
@@ -98,7 +96,7 @@ h3, p {
 }
 
 .submit {
-  background-color: rgba(94, 94, 94, 0.644);
+  background-color: rgba(94, 94, 94, 0.87);
   color: white;
   font-weight: 400;
   border: none;
@@ -117,6 +115,12 @@ h3, p {
   right: 0;
 }
 
+/* Results pages */
+
+.results {
+  text-align: left;
+}
+
 .appimage, .cocimage {
   height: 200px;
   border-radius: 5px;
@@ -129,6 +133,7 @@ h3, p {
 
 .totheside{
   display: flex;
+  border: 1px solid black;
 }
 
 .ingredientList {
@@ -168,4 +173,24 @@ h3, p {
   position: relative;
   width: fit-content;
   text-align: center;
+}
+
+.deleteItem {
+  height: 100px;
+  background: url(https://i.imgur.com/joOffsu.jpg) no-repeat center center;
+  background-size: 150px;
+  border: none;
+  width: 80px;
+  opacity: 0.5;
+}
+
+.deleteItem:hover {
+  opacity: 1;
+}
+
+.drinkname {
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  border: 2px solid red;
 }

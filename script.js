@@ -265,7 +265,7 @@ function displayShortCocResults(results){
     for (let i=0; i<results.drinks.length; i++){
     $('.cocResults').append(`<li class="totheside">
     <div>
-    <button type='submit' class='findingredients' value='${results.drinks[i].idDrink}'>${results.drinks[i].strDrink}</button><br>
+    <button type='submit' class='findingredients drinkname' value='${results.drinks[i].idDrink}'>${results.drinks[i].strDrink}</button><br>
     <button type="submit" class="deleteItem">Not Interested</button>
     </div>
     <img src='${results.drinks[i].strDrinkThumb}' class="cocimage"></li>`);
@@ -281,7 +281,7 @@ function displayCocResults(results){
     for (let i=0; i<results.drinks.length; i++){
         var displayString =`<li class="totheside">
         <div>
-        <label>${results.drinks[i].strDrink}</label><br>
+        <label class="drinkname">${results.drinks[i].strDrink}</label><br>
         <button type="submit" class="deleteItem">Delete</button>
         </div>
         <img src='${results.drinks[i].strDrinkThumb}' class="cocimage">
