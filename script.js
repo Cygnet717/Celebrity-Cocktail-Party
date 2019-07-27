@@ -63,7 +63,7 @@ function displayAppResults(responseJson){
     console.log (responseJson);
     $('.appResults').empty();
     if (responseJson.recipes[0].recipe_id == '47349' || responseJson.count == 0){
-        $('.appResults').prepend("<p>We don't recognise that ingredient. Here is our most popular recipes.</p>")
+        $('.topRated').append("<p>We don't recognise that ingredient. Here is our most popular recipes.</p>")
     }
     $('#appetizerResults').removeClass('hidden');
     for (let i=0; i<responseJson.recipes.length; i++){
@@ -264,11 +264,15 @@ function displayShortCocResults(results){
     }
     for (let i=0; i<results.drinks.length; i++){
     $('.cocResults').append(`<li class="totheside">
-    <div>
-    <button type='submit' class='findingredients drinkname' value='${results.drinks[i].idDrink}'>${results.drinks[i].strDrink}</button><br>
+    <div class="section1">
+    <div class="drinkbuttons">
+    <button type='submit' class='findingredients constcss drinkname' value='${results.drinks[i].idDrink}'>${results.drinks[i].strDrink}</button><br>
     <button type="submit" class="deleteItem">Not Interested</button>
     </div>
-    <img src='${results.drinks[i].strDrinkThumb}' class="cocimage"></li>`);
+    <img src='${results.drinks[i].strDrinkThumb}' class="cocimage">
+    </div>
+    </li>
+    <br>`);
     }
 }
 
@@ -280,12 +284,14 @@ function displayCocResults(results){
     $('#cocktailResults').removeClass('hidden');
     for (let i=0; i<results.drinks.length; i++){
         var displayString =`<li class="totheside">
-        <div>
+        <div class="section1">
+        <div class="drinkbuttons">
         <label class="drinkname">${results.drinks[i].strDrink}</label><br>
-        <button type="submit" class="deleteItem">Delete</button>
+        <button type="submit" class="deleteItem">Not Interested</button>
         </div>
         <img src='${results.drinks[i].strDrinkThumb}' class="cocimage">
-        <div>Instructions: ${results.drinks[i].strInstructions}<br>
+        </div>
+        <div class="instructions">Instructions: ${results.drinks[i].strInstructions}<br>
         Ingredients:<br>
         <ul class="ingredientList">`;
 
@@ -299,7 +305,8 @@ function displayCocResults(results){
         }
         displayString = displayString + `</ul>
         </div>
-        </li>`;
+        </li>
+        <br>`;
     $('.cocResults').append(displayString);
     }
 }
@@ -328,10 +335,10 @@ function generateRandomCocktail(){
 function displayIngList (results, target){
     console.log(results);
     for (let i=0; i<results.drinks.length; i++){
-        var displayString =`<div>Instructions: ${results.drinks[i].strInstructions}<br>
+        var displayString =`<div class="instructions">Instructions: ${results.drinks[i].strInstructions}<br>
         Ingredients:<br>
         <ul class="ingredientList">`;
-
+        
         for (let j=1; j<=10; j++){
             var localMea ='strMeasure'+j;
             var localIng ='strIngredient'+j;
