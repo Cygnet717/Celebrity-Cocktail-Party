@@ -23,9 +23,18 @@ input[type=text]:hover {
 }
 
 h1 {
+  font-family: 'Pacifico', cursive;
   margin-left: auto;
   margin-right: auto;
   width: fit-content;
+}
+
+h3 {
+  font-family: 'Pacifico', cursive;
+}
+
+p, button, label{
+  font-family: 'Alice', serif;
 }
 
 h3, p {
@@ -144,7 +153,8 @@ button:hover {
   width: fit-content;
   list-style: none;
   text-align: center;
-  border: 1px solid #F2A7A7;
+  background: rgba(238, 238, 238, 0.658);
+  border: 1px solid #049DD9;
 }
 
 .celimage {
@@ -154,10 +164,13 @@ button:hover {
 
 /*cocktail results*/
 
-.totheside{
+.dynamicResults, .staticResults{
   display: flex;
   justify-content: space-evenly;
+  margin-left: auto;
+  margin-right: auto;
   padding: 10px;
+  margin-bottom: 10px;
   background: rgba(238, 238, 238, 0.658);
   border: 1px solid #049DD9;
 }
@@ -188,7 +201,9 @@ button:hover {
   height:50px;
   width: 100px;
   margin: 5px;
-  padding-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   text-align: center;
   background: #049DD9;
@@ -213,25 +228,74 @@ button:hover {
 /*Appetizer results*/
 .overlay {
   position: absolute;
-  top: 50%;
-  left:25%;
+  margin-top: 15%;
+  margin-left: 0%;
+  height: 200px;
+  width: 228px;
   text-decoration: none;
   font-weight: 500;
   color: black;
-  width: fit-content;
   text-align: center;
   z-index: 1;
-  padding: 5px;
-  background: rgba(128, 128, 128, 0.562);
+  padding-top: 40%;
+  opacity: 0;
+  background: rgba(238, 238, 238, 0.438);
 }
 
 .appli {
+  display: flex;
+  flex-direction: column;
   position: relative;
-  width: fit-content;
+  width: 250px;
   text-align: center;
-  border: 1px solid #F2A7A7;
-  background: #B4D2D9;
+  background: rgba(238, 238, 238, 0.658);
+  border: 1px solid #049DD9;
   padding: 10px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 10px;
+}
+
+.overlay:hover{
+  opacity: 0.9;
+}
+
+@media screen and (min-width: 506px) and (max-width: 1000px){
+  .homenav, .pagenav, .cocnav {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  h4 {
+    text-align: center;
+  }
+
+  .staticResults{
+    width: 75%;
+  }
+
+  .dynamicResults{
+    width: 240px;
+  }
+
+  .dynamicResults, .staticResults{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    justify-content: flex-start;
+  }
+
+  .section1{
+    width: 220px;
+  }
+
+  .appResults{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .celebritysearch{
+    display: flex;
+    justify-content: space-evenly;
+  }
 }

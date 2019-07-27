@@ -6,6 +6,7 @@
     <title>Celebrity Cocktail Party!</title>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <link href="main.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Alice|Merriweather|Pacifico&display=swap" rel="stylesheet">
   </head>
   <body>
     <section class="home">
@@ -52,7 +53,7 @@
         <div id="cocktailResults" class="hidden">
                 <h3 class="results">Results:</h3>
                 <ol class="cocResults">
-                    <li class="totheside">
+                    <li class="staticResults">
                         <div class="section1">
                             <div class="drinkbuttons">
                                 <button class="drinkname">Drink Name</button><br><br>
@@ -68,7 +69,7 @@
                         </div>
                     </li>
                     <br>
-                    <li class="totheside">
+                    <li class="dynamicResults">
                         <div class="section1">
                             <div class="drinkbuttons">
                                 <button type='submit' class='findingredients constcss drinkname' value='${results.drinks[i].idDrink}'>drink name</button><br>
@@ -99,9 +100,13 @@
         <div id="appetizerResults" class="hidden">
             <h3 class="topRated results">Results:</h3>
             <ol class="appResults">
-                <li>title<br><img class="appimage" src=''><br>
-                    <a target="_blank" href=''>View Recipe</a><br>
-                    <a target="_blank" href=''>publisher</a></li>
+                <li class="appli">
+                    <label>title</label>
+                    <br>
+                    <img class="appimage" src=''>
+                    <a target="_blank" href='' class="overlay"><b>View Recipe</b></a>
+                    <p>Publisher:<a target="_blank" href=''>publisher</a></p>
+                </li><br>
             </ol>
         </div>
     </section>
@@ -115,23 +120,29 @@
             <button class="homebutton">Home</button></nav>
         <form class="celebrityform">
             <h3>Celebrity Names</h3>
-            <label>How many female:(max 10)</label><br>
-            <input type="number" class="femaleNames" value=""><br><br>
-            <label>How many male:(max 10)</label><br>
-            <input type="number" class="maleNames" value=""><br><br>
+            <div class="celebritysearch">
+                <section>
+                    <label>How many female:(max 10)</label><br>
+                    <input type="number" class="femaleNames" value="">
+                </section>
+                <section>
+                    <label>How many male:(max 10)</label><br>
+                    <input type="number" class="maleNames" value="">
+                </section>
+            </div>
             <input type="submit" class="submitCelebrity submit" value="Search Celebrity Names"> 
         </form>
 
         <div id="femaleCelebrityResults" class="hidden">
                 <h3 class="results">Female Results:</h3>
                 <ul class="femaleCelResults">
-                    <li>name<br><img class="celimage" src=''></li>
+                    <li><lable>name</lable><br><img class="celimage" src=''></li>
                 </ul>
         </div>
         <div id="maleCelebrityResults" class="hidden">
             <h3 class="results">Male Results:</h3>
                 <ul class="maleCelResults">
-                    <li>name<br><img class="celimage" src=''></li>
+                    <li><lable>name</lable><br><img class="celimage" src=''></li>
                 </ul>
         </div>
     </section>

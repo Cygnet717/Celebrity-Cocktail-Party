@@ -63,14 +63,16 @@ function displayAppResults(responseJson){
     console.log (responseJson);
     $('.appResults').empty();
     if (responseJson.recipes[0].recipe_id == '47349' || responseJson.count == 0){
-        $('.topRated').append("<p>We don't recognise that ingredient. Here is our most popular recipes.</p>")
+        alert(`We don't recognise that ingredient. We can give you our most popular recipes`)
     }
     $('#appetizerResults').removeClass('hidden');
     for (let i=0; i<responseJson.recipes.length; i++){
-    $('.appResults').append(`<li class="appli">${responseJson.recipes[i].title}<br />
-    <img src='${responseJson.recipes[i].image_url}' class="appimage"><br />
-    <a target="_blank" href='${responseJson.recipes[i].source_url}' class="overlay">View Recipe</a><br />
-    Publisher:<a target="_blank" href='${responseJson.recipes[i].publisher_url}'>${responseJson.recipes[i].publisher}</a></li><br>`)
+    $('.appResults').append(`<li class="appli">
+    <label>${responseJson.recipes[i].title}</label>
+    <br>
+    <img class="appimage" src='${responseJson.recipes[i].image_url}'>
+    <a target="_blank" href='${responseJson.recipes[i].source_url}' class="overlay"><b>View Recipe</b></a>
+    <p>Publisher:<a target="_blank" href='${responseJson.recipes[i].publisher_url}'>${responseJson.recipes[i].publisher}</a></p></li><br>`)
     }
 }
 
@@ -84,7 +86,7 @@ function getApps(URL){
     })
     .then(responseJson => displayAppResults(responseJson))
     .catch (err =>{
-        $('.results').text(`Something went wrong: ${err.message}`)
+        alert(`Something went wrong: ${err.message}`)
     })
 }
 
@@ -203,7 +205,7 @@ function fetchNameURL(name){
     })
     .then(responseJson => displayCocResults(responseJson))
     .catch (err =>{
-        $('.results').text(`Something went wrong: ${err.message}`)
+        alert(`Something went wrong: ${err.message}`)
     })
 }
 
@@ -232,7 +234,7 @@ function fetchIngURL(name){
     })
     .then(responseJson => displayShortCocResults(responseJson))
     .catch (err =>{
-        $('.results').text(`Something went wrong: ${err.message}`)
+        alert(`Something went wrong: ${err.message}`)
     })
 }
 
@@ -250,7 +252,7 @@ function generateNonAlcoholic(){
         })
         .then(responseJson => displayShortCocResults(responseJson))
         .catch (err =>{
-            $('.results').text(`Something went wrong: ${err.message}`)
+            alert(`Something went wrong: ${err.message}`)
         })
         })
 }
@@ -260,10 +262,10 @@ function displayShortCocResults(results){
     $('.cocResults').empty();
     $('#cocktailResults').removeClass('hidden');
     if (results == ''){
-        alert ('dont recognize that ingredient.')
+        alert ("We don't recognize that ingredient.")
     }
     for (let i=0; i<results.drinks.length; i++){
-    $('.cocResults').append(`<li class="totheside">
+    $('.cocResults').append(`<li class="dynamicResults">
     <div class="section1">
     <div class="drinkbuttons">
     <button type='submit' class='findingredients constcss drinkname' value='${results.drinks[i].idDrink}'>${results.drinks[i].strDrink}</button><br>
@@ -271,8 +273,7 @@ function displayShortCocResults(results){
     </div>
     <img src='${results.drinks[i].strDrinkThumb}' class="cocimage">
     </div>
-    </li>
-    <br>`);
+    </li>`);
     }
 }
 
@@ -283,7 +284,7 @@ function displayCocResults(results){
     }
     $('#cocktailResults').removeClass('hidden');
     for (let i=0; i<results.drinks.length; i++){
-        var displayString =`<li class="totheside">
+        var displayString =`<li class="staticResults">
         <div class="section1">
         <div class="drinkbuttons">
         <label class="drinkname">${results.drinks[i].strDrink}</label><br>
@@ -305,8 +306,7 @@ function displayCocResults(results){
         }
         displayString = displayString + `</ul>
         </div>
-        </li>
-        <br>`;
+        </li>`;
     $('.cocResults').append(displayString);
     }
 }
@@ -327,7 +327,7 @@ function generateRandomCocktail(){
         })
         .then(responseJson => displayCocResults(responseJson))
         .catch (err =>{
-            $('.results').text(`Something went wrong: ${err.message}`)
+            alert(`Something went wrong: ${err.message}`)
         })
         })
 }
@@ -338,7 +338,7 @@ function displayIngList (results, target){
         var displayString =`<div class="instructions">Instructions: ${results.drinks[i].strInstructions}<br>
         Ingredients:<br>
         <ul class="ingredientList">`;
-        
+
         for (let j=1; j<=10; j++){
             var localMea ='strMeasure'+j;
             var localIng ='strIngredient'+j;
@@ -350,7 +350,10 @@ function displayIngList (results, target){
         displayString = displayString + `</ul>
         </div>
         </li>`;
+    $(target).animate({width: '75%'});
     $(target).append(displayString);
+    $(target).children('.instructions').hide();
+    $(target).children('.instructions').delay(600).fadeIn();
     }
 }
 
@@ -362,9 +365,9 @@ function pullCocIngredients(){
         console.log('pull ingredients clicked');
         const drinkid= $(event.target).val();
         console.log (drinkid);
+        $(event.target).removeClass('findingredients');
+        var target = $(event.target).closest("li");
         var url= findbyidURL + drinkid;
-        $(event.target).removeClass('findingredients')
-        var target = $(event.target).closest("li")
         fetch (url)
         .then(response =>{
             if (response.ok){
@@ -374,7 +377,7 @@ function pullCocIngredients(){
         })
         .then(responseJson => displayIngList(responseJson, target))
         .catch (err=>{
-            $('.cocResults').text(`Something went wrong: ${err.message}`)
+            alert(`Something went wrong: ${err.message}`)
         })
     })
 }
