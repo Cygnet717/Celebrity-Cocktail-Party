@@ -7,24 +7,21 @@ $('.namediv').hide();
 $('.ingredientdiv').hide();
 
 function watchNavClicks() {
-    $("nav .cocktails").on('click', event =>{
-        console.log ('cocktails clicked');
+    $('nav .cocktails').on('click', event =>{
         $('.home').hide();
         $('.cocktailsView').show();
         $('.appetizersView').hide();
         $('.celebrityView').hide();
     });
 
-    $("nav .appetizers").on('click', event =>{
-        console.log ('appetizers clicked');
+    $('nav .appetizers').on('click', event =>{
         $('.home').hide();
         $('.appetizersView').show();
         $('.cocktailsView').hide();
         $('.celebrityView').hide();
     });
 
-    $("nav .celebrity").on('click', event =>{
-        console.log ('celebrity clicked');
+    $('nav .celebrity').on('click', event =>{
         $('.home').hide();
         $('.appetizersView').hide();
         $('.cocktailsView').hide();
@@ -32,7 +29,6 @@ function watchNavClicks() {
     });
 
     $('nav .homebutton').on('click', event=>{
-        console.log('home clicked');
         $('.home').show();
         $('.appetizersView').hide();
         $('.cocktailsView').hide();
@@ -40,19 +36,16 @@ function watchNavClicks() {
     });
 
     $('.byname').on('click', event =>{
-        console.log('search by name clicked');
         $('.namediv').show();
         $('.ingredientdiv').hide();
     });
 
     $('.byingredient').on('click', event =>{
-        console.log('search by ingredient clicked');
         $('.namediv').hide();
         $('.ingredientdiv').show();
     });
 
     $('.nonalcoholic, .random').on('click', event =>{
-        console.log('random or nonalcoholic clicked');
         $('.namediv').hide();
         $('.ingredientdiv').hide();
     });
@@ -60,10 +53,9 @@ function watchNavClicks() {
 
 //appetizer functions
 function displayAppResults(responseJson){
-    console.log (responseJson);
     $('.appResults').empty();
     if (responseJson.recipes[0].recipe_id == '47349' || responseJson.count == 0){
-        alert(`We don't recognise that ingredient. We can give you our most popular recipes`)
+        alert('We don\'t recognise that ingredient. We can give you our most popular recipes')
     }
     $('#appetizerResults').removeClass('hidden');
     for (let i=0; i<responseJson.recipes.length; i++){
@@ -71,10 +63,10 @@ function displayAppResults(responseJson){
     <label>${responseJson.recipes[i].title}</label>
     <br>
     <div class="box">
-        <img class="appimage" src='${responseJson.recipes[i].image_url}'>
-        <a target="_blank" href='${responseJson.recipes[i].source_url}' class="overlay"><b>View Recipe</b></a>
+        <img class="appimage" src="${responseJson.recipes[i].image_url}">
+        <a target="_blank" href="${responseJson.recipes[i].source_url}" class="overlay"><b>View Recipe</b></a>
     </div>
-    <p>Publisher:<a target="_blank" href='${responseJson.recipes[i].publisher_url}'>${responseJson.recipes[i].publisher}</a></p></li><br>`)
+    <p>Publisher:<a target="_blank" href="${responseJson.recipes[i].publisher_url}">${responseJson.recipes[i].publisher}</a></p></li><br>`)
     }
 }
 
@@ -96,8 +88,7 @@ const food2forkURL = 'https://www.food2fork.com/api/search?'
 
 function makeAppURL(ingredient){
     const queryList = ingredient.replace(/\s+/g, '%20');
-    const appURL = food2forkURL + 'q=appetizer,' + queryList + '&key=613b3cd66c7ab01c4ea3b354190b9fb6'
-    console.log (appURL);
+    const appURL = food2forkURL + 'q=appetizer,' + queryList + '&key=613b3cd66c7ab01c4ea3b354190b9fb6';
     getApps(appURL);
 }
 
@@ -105,7 +96,6 @@ function watchAppIngredientSearch(){
     $('.submitAppIngredient').on('click', event=>{
         event.preventDefault();
         const appIngredient= $('.appIngredient').val();
-        console.log(appIngredient);
         makeAppURL(appIngredient);
     })
 }
@@ -124,18 +114,16 @@ function shuffle(randomArray) {
     tmp = randomArray[current];
     randomArray[current] = randomArray[top];
     randomArray[top] = tmp;
-  }
-  console.log(randomArray)
+  };
   return randomArray;
 }
 a = shuffle(a);
-var userArray = a.slice(0, numNames);
-console.log (userArray)
+let userArray = a.slice(0, numNames);
 
     for (let i=0; i<userArray.length; i++){
         let location = userArray[i];
-        $('.femaleCelResults').append(`<li>${femaleCelebrity[location].name}<br />
-        <img class="celimage" src='${femaleCelebrity[location].img}'></li>`);
+        $('.femaleCelResults').append(`<li>${femaleCelebrity[location].name}<br>
+        <img class="celimage" src="${femaleCelebrity[location].img}"></li>`);
     }
 };
 
@@ -152,18 +140,16 @@ function shuffle(randomArray) {
     tmp = randomArray[current];
     randomArray[current] = randomArray[top];
     randomArray[top] = tmp;
-  }
-  console.log(randomArray)
+  };
   return randomArray;
 }
 a = shuffle(a);
 
-var userArray = a.slice(0, numNames);
-console.log (userArray)
+let userArray = a.slice(0, numNames);
     for (let i=0; i<userArray.length; i++){
         let location = userArray[i];
         $('.maleCelResults').append(`<li>${maleCelebrity[location].name}<br>
-        <img class="celimage" src='${maleCelebrity[location].img}'></li>`);
+        <img class="celimage" src="${maleCelebrity[location].img}"></li>`);
     }
 };
 
@@ -175,8 +161,6 @@ function watchCelebritySearch(){
         if (femaleNames>10 || maleNames>10){
             alert('Too many names requested. We can only give you 10 at this time.')
         }
-        console.log("the number of female names: " +femaleNames);
-        console.log("the number of male names: " +maleNames);
         generateFRandom(femaleNames);
         generateMRandom(maleNames);
     })
@@ -191,7 +175,6 @@ function cocktailByName(){
         event.preventDefault();
         $('.cocResults').empty();
         const cocktailname= $('.cocktailname').val();
-        console.log(cocktailname);
         fetchNameURL(cocktailname);
     })
 }
@@ -217,16 +200,14 @@ function cocktailByIngredient(){
     $('.submitCocktailIngredient').on('click', event=>{
         event.preventDefault();
         $('.cocResults').empty();
-        var cocktailIng= $('.cocktailIngredient').val();
+        let cocktailIng= $('.cocktailIngredient').val();
         cocktailIng = cocktailIng.replace(/\s/g, '%20');
-        console.log(cocktailIng);
         fetchIngURL(cocktailIng);
     })
 }
 
 function fetchIngURL(name){
     const ingURL = byIngredientURL+name;
-    console.log (ingURL)
     fetch(ingURL)
     .then(response =>{
         if (response.ok){
@@ -260,47 +241,46 @@ function generateNonAlcoholic(){
 }
 
 function displayShortCocResults(results){
-    console.log('Here are the results: '+results);
     $('.cocResults').empty();
     $('#cocktailResults').removeClass('hidden');
     if (results == ''){
-        alert ("We don't recognize that ingredient.")
+        alert ('We don\'t recognize that ingredient.')
     }
     for (let i=0; i<results.drinks.length; i++){
     $('.cocResults').append(`<li class="dynamicResults">
     <div class="section1">
     <div class="drinkbuttons">
-    <button type='submit' class='findingredients constcss drinkname' value='${results.drinks[i].idDrink}'>${results.drinks[i].strDrink}</button><br>
+    <button type="submit" class="findingredients constcss drinkname" value="${results.drinks[i].idDrink}">${results.drinks[i].strDrink}</button><br>
     <button type="submit" class="deleteItem">Not Interested</button>
     </div>
-    <img src='${results.drinks[i].strDrinkThumb}' class="cocimage">
+    <img src="${results.drinks[i].strDrinkThumb}" class="cocimage">
     </div>
     </li>`);
     }
 }
 
 function displayCocResults(results){
-    console.log(results);
+
     if (results.drinks == null){
-        alert("That name is not recognized, please try another.")
+        alert('That name is not recognized, please try another.')
     }
     $('#cocktailResults').removeClass('hidden');
     for (let i=0; i<results.drinks.length; i++){
-        var displayString =`<li class="staticResults">
+        let displayString =`<li class="staticResults">
         <div class="section1">
         <div class="drinkbuttons">
         <label class="drinkname">${results.drinks[i].strDrink}</label><br>
         <button type="submit" class="deleteItem">Not Interested</button>
         </div>
-        <img src='${results.drinks[i].strDrinkThumb}' class="cocimage">
+        <img src="${results.drinks[i].strDrinkThumb}" class="cocimage">
         </div>
         <div class="instructions">Instructions: ${results.drinks[i].strInstructions}<br>
         Ingredients:<br>
         <ul class="ingredientList">`;
 
         for (let j=1; j<=10; j++){
-            var localMea ='strMeasure'+j;
-            var localIng ='strIngredient'+j;
+            let localMea ='strMeasure'+j;
+            let localIng ='strIngredient'+j;
 
             if (results.drinks[i][localMea] != null){
                 displayString =displayString + `<li>${results.drinks[i][localMea]} ${results.drinks[i][localIng]}</li>`
@@ -335,15 +315,14 @@ function generateRandomCocktail(){
 }
 
 function displayIngList (results, target){
-    console.log(results);
     for (let i=0; i<results.drinks.length; i++){
-        var displayString =`<div class="instructions">Instructions: ${results.drinks[i].strInstructions}<br>
+        let displayString =`<div class="instructions">Instructions: ${results.drinks[i].strInstructions}<br>
         Ingredients:<br>
         <ul class="ingredientList">`;
 
         for (let j=1; j<=10; j++){
-            var localMea ='strMeasure'+j;
-            var localIng ='strIngredient'+j;
+            let localMea ='strMeasure'+j;
+            let localIng ='strIngredient'+j;
 
             if (results.drinks[i][localMea] != null){
                 displayString =displayString + `<li>${results.drinks[i][localMea]} ${results.drinks[i][localIng]}</li>`
@@ -364,12 +343,10 @@ const findbyidURL='https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i='
 function pullCocIngredients(){
     $('.cocResults').on('click', '.findingredients', event=>{
         event.preventDefault();
-        console.log('pull ingredients clicked');
         const drinkid= $(event.target).val();
-        console.log (drinkid);
         $(event.target).removeClass('findingredients');
-        var target = $(event.target).closest("li");
-        var url= findbyidURL + drinkid;
+        let target = $(event.target).closest('li');
+        let url= findbyidURL + drinkid;
         fetch (url)
         .then(response =>{
             if (response.ok){
@@ -401,5 +378,4 @@ function runPage(){
     pullCocIngredients();
     deleteCocktail();
 };
-
 runPage ();
