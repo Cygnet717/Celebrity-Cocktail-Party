@@ -70,8 +70,10 @@ function displayAppResults(responseJson){
     $('.appResults').append(`<li class="appli">
     <label>${responseJson.recipes[i].title}</label>
     <br>
-    <img class="appimage" src='${responseJson.recipes[i].image_url}'>
-    <a target="_blank" href='${responseJson.recipes[i].source_url}' class="overlay"><b>View Recipe</b></a>
+    <div class="box">
+        <img class="appimage" src='${responseJson.recipes[i].image_url}'>
+        <a target="_blank" href='${responseJson.recipes[i].source_url}' class="overlay"><b>View Recipe</b></a>
+    </div>
     <p>Publisher:<a target="_blank" href='${responseJson.recipes[i].publisher_url}'>${responseJson.recipes[i].publisher}</a></p></li><br>`)
     }
 }

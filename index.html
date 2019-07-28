@@ -14,19 +14,19 @@
     <h3>Here is everything you need to throw a Celebrity Cocktail Party</h3>
     <p>Stock your bar, make some new cocktails, make some delecious appetizers, and give each guest a celebrity persona!<br>Great for Oscar Parties!</p><br>
         <nav class="homenav">
-            <button class="cocktails">Cocktails</button>
-            <button class="appetizers">Appetizers</button>
-            <button class="celebrity">Celebrity Names</button>
+            <button class="cocktails"><span class="label">Cocktails</span></button>
+            <button class="appetizers"><span class="label">Appetizers</span></button>
+            <button class="celebrity"><span class="label">Celebrity Names</span></button>
         </nav>
     </section>
 
     <section class="cocktailsView">
         <h1>Celebrity Cocktail Party</h1>
         <nav class="pagenav">
-            <button class="inactive cocktails">Cocktails</button>
-            <button class="appetizers">Appetizers</button>
-            <button class="celebrity">Celebrity Names</button>
-            <button class="homebutton">Home</button>
+            <button class="inactive cocktails"><span class="label">Cocktails</span></button>
+            <button class="appetizers"><span class="label">Appetizers</span></button>
+            <button class="celebrity"><span class="label">Celebrity Names</span></button>
+            <button class="homebutton"><span class="label">Home</span></button>
         </nav>
         <h3>Cocktails</h3>
         <h4>Search for a cocktail:</h4>
@@ -85,10 +85,11 @@
     <section class="appetizersView">
         <h1>Celebrity Cocktail Party</h1>
         <nav class="pagenav">
-            <button class="cocktails">Cocktails</button>
-            <button class="inactive appetizers">Appetizers</button>
-            <button class="celebrity">Celebrity Names</button>
-            <button class="homebutton">Home</button></nav>
+            <button class="cocktails"><span class="label">Cocktails</span></button>
+            <button class="inactive appetizers"><span class="label">Appetizers</span></button>
+            <button class="celebrity"><span class="label">Celebrity Names</span></button>
+            <button class="homebutton"><span class="label">Home</span></button>
+        </nav>
         <form class="appetizerform">
             <h3>Appetizers</h3>
             <label>Appetizer Ingredient(s):<br>
@@ -103,8 +104,10 @@
                 <li class="appli">
                     <label>title</label>
                     <br>
-                    <img class="appimage" src=''>
-                    <a target="_blank" href='' class="overlay"><b>View Recipe</b></a>
+                    <div class="box">
+                        <img class="appimage" src=''>
+                        <a target="_blank" href='' class="overlay"><b>View Recipe</b></a>
+                    </div>
                     <p>Publisher:<a target="_blank" href=''>publisher</a></p>
                 </li><br>
             </ol>
@@ -114,10 +117,11 @@
     <section class="celebrityView">
         <h1>Celebrity Cocktail Party</h1>
         <nav class="pagenav">
-            <button class="cocktails">Cocktails</button>
-            <button class="appetizers">Appetizers</button>
-            <button class="inactive celebrity">Celebrity Names</button>
-            <button class="homebutton">Home</button></nav>
+            <button class="cocktails"><span class="label">Cocktails</span></button>
+            <button class="appetizers"><span class="label">Appetizers</span></button>
+            <button class="inactive celebrity"><span class="label">Celebrity Names</span></button>
+            <button class="homebutton"><span class="label">Home</span></button>
+        </nav>
         <form class="celebrityform">
             <h3>Celebrity Names</h3>
             <div class="celebritysearch">
@@ -129,7 +133,7 @@
                     <label>How many male:(max 10)</label><br>
                     <input type="number" class="maleNames" value="">
                 </section>
-            </div>
+            </div><br>
             <input type="submit" class="submitCelebrity submit" value="Search Celebrity Names"> 
         </form>
 
