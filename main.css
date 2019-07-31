@@ -27,6 +27,7 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   width: fit-content;
+  text-align: center;
 }
 
 h3 {
@@ -62,7 +63,7 @@ button:hover {
   opacity: 0.8;
   border: none;
   border-radius: 5px;
-
+  margin: 5px;
 }
 
 .cocnav > button {
@@ -72,6 +73,7 @@ button:hover {
   color: white;
   height: 50px;
   width: 100px;
+  margin: 5px;
 }
 
 .homebutton {
@@ -81,7 +83,7 @@ button:hover {
 }
 
 .cocktails {
-  background: url( https://i.imgur.com/eBy7Tpd.jpg) no-repeat center center;
+  background: url(https://i.imgur.com/eBy7Tpd.jpg) no-repeat center center;
   background-size: cover;  
 }
 
@@ -143,6 +145,10 @@ button:hover {
   text-align: left;
 }
 
+.cocResults{
+  padding: 0px;
+}
+
 .appimage, .cocimage {
   height: 200px;
   max-width: 228px;
@@ -179,10 +185,20 @@ button:hover {
   justify-content: space-evenly;
   margin-left: auto;
   margin-right: auto;
+  -webkit-flex: 1; /* Safari 6.1+ */
+  -ms-flex: 1; /* IE 10 */ 
+  flex: 1;
   padding: 10px;
   margin-bottom: 10px;
   background: rgba(238, 238, 238, 0.658);
-  border: 1px solid #049DD9;
+  border: 1px solid #049DD9
+}
+
+@media screen and (max-width: 465px){
+  .appimage, .cocimage {
+    height: 200px;
+    max-width: 228px;
+  }
 }
 
 .deleteItem {

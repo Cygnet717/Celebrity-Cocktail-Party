@@ -331,8 +331,9 @@ function displayIngList (results, target){
         displayString = displayString + `</ul>
         </div>
         </li>`;
-    $(target).animate({width: '75%'});
+    
     $(target).append(displayString);
+    $(target).animate({width: '100%'});
     $(target).children('.instructions').hide();
     $(target).children('.instructions').delay(600).fadeIn();
     }
@@ -363,7 +364,7 @@ function pullCocIngredients(){
 
 function deleteCocktail(){
     $('.cocResults').on('click', '.deleteItem', event =>{
-        $(event.target).closest('li').hide();
+        $(event.target).closest('li').slideUp();
     })
 }
 
