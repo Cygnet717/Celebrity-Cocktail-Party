@@ -68,6 +68,15 @@ function displayAppResults(responseJson){
     </div>
     <p>Publisher:<a target="_blank" href="${responseJson.recipes[i].publisher_url}">${responseJson.recipes[i].publisher}</a></p></li><br>`)
     }
+    scrollAppToResults();
+}
+
+function scrollAppToResults(){
+    console.log ('ready to scroll')
+    var $container = $('html,body');
+    var $scrollTo = $('.topRated');
+
+	$container.animate({scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop(), scrollLeft: 0},300);
 }
 
 function getApps(URL){
@@ -125,7 +134,16 @@ let userArray = a.slice(0, numNames);
         $('.femaleCelResults').append(`<li>${femaleCelebrity[location].name}<br>
         <img class="celimage" src="${femaleCelebrity[location].img}"></li>`);
     }
+    scrollCelToResults();
 };
+
+function scrollCelToResults(){
+    console.log ('ready to scroll')
+    var $container = $('html,body');
+    var $scrollTo = $('.femresults');
+
+	$container.animate({scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop(), scrollLeft: 0},300);
+}
 
 function generateMRandom(numNames){
     $('.maleCelResults').empty();
@@ -257,6 +275,7 @@ function displayShortCocResults(results){
     </div>
     </li>`);
     }
+    scrollToResults();
 }
 
 function displayCocResults(results){
@@ -274,8 +293,8 @@ function displayCocResults(results){
         </div>
         <img src="${results.drinks[i].strDrinkThumb}" class="cocimage">
         </div>
-        <div class="instructions">Instructions: ${results.drinks[i].strInstructions}<br>
-        Ingredients:<br>
+        <div class="instructions"><u>Instructions</u>: ${results.drinks[i].strInstructions}<br>
+        <u>Ingredients</u>:<br>
         <ul class="ingredientList">`;
 
         for (let j=1; j<=10; j++){
@@ -291,6 +310,15 @@ function displayCocResults(results){
         </li>`;
     $('.cocResults').append(displayString);
     }
+    scrollToResults();
+}
+
+function scrollToResults(){
+    console.log ('ready to scroll')
+    var $container = $('html,body');
+    var $scrollTo = $('.results');
+
+	$container.animate({scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop(), scrollLeft: 0},300);
 }
 
 const randCoURL= 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
@@ -316,8 +344,8 @@ function generateRandomCocktail(){
 
 function displayIngList (results, target){
     for (let i=0; i<results.drinks.length; i++){
-        let displayString =`<div class="instructions">Instructions: ${results.drinks[i].strInstructions}<br>
-        Ingredients:<br>
+        let displayString =`<div class="instructions"><u>Instructions</u>: ${results.drinks[i].strInstructions}<br>
+        <u>Ingredients</u>:<br>
         <ul class="ingredientList">`;
 
         for (let j=1; j<=10; j++){
@@ -331,11 +359,22 @@ function displayIngList (results, target){
         displayString = displayString + `</ul>
         </div>
         </li>`;
-    
     $(target).append(displayString);
-    $(target).animate({width: '100%'});
     $(target).children('.instructions').hide();
-    $(target).children('.instructions').delay(600).fadeIn();
+    $(target).children('.hide').hide();
+    checkWindowSize(target);
+    }
+}
+
+function checkWindowSize(target){
+    console.log ('got this far')
+    if (window.matchMedia('(max-width: 465px)').matches){
+        console.log('small');
+        $(target).children('.instructions').slideDown();
+    } else {
+        console.log ('large');
+        $(target).animate({width: '90%'});
+        $(target).children('.instructions').delay(600).fadeIn();
     }
 }
 
@@ -367,6 +406,8 @@ function deleteCocktail(){
         $(event.target).closest('li').slideUp();
     })
 }
+
+
 
 function runPage(){
     watchNavClicks();

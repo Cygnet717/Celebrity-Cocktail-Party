@@ -18,7 +18,7 @@ input[type=text]{
   border: 2px solid white;
 }
 
-input[type=text]:hover {
+input[type=text]:hover, input[type=text]:focus, input[type=text]:active {
   border: 2px solid rgb(99, 151, 247);
 }
 
@@ -51,7 +51,7 @@ form {
 
 /* Navigation Buttons */
 
-button:hover {
+button:hover, button:focus, button:active {
   cursor: pointer;
   opacity: 1;
 }
@@ -134,25 +134,31 @@ button:hover {
   transition: 0.5s;
 }
 
-.submit:hover {
+.submit:hover, .submit:focus, .submit:active {
   opacity: 1;
   right: 0;
 }
 
 /* Results pages */
 
-.results {
+ol {
+  padding: 0;
+}
+
+.results, .maleresults {
   text-align: left;
 }
 
-.cocResults{
-  padding: 0px;
+.appimage {
+  height: 200px;
+  max-width: 228;
 }
 
-.appimage, .cocimage {
-  height: 200px;
-  max-width: 228px;
+.cocimage {
+  width: 60%;
   border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Celebrity results */
@@ -182,26 +188,17 @@ button:hover {
 
 .dynamicResults, .staticResults{
   display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
   margin-left: auto;
   margin-right: auto;
-  -webkit-flex: 1; /* Safari 6.1+ */
-  -ms-flex: 1; /* IE 10 */ 
-  flex: 1;
   padding: 10px;
   margin-bottom: 10px;
   background: rgba(238, 238, 238, 0.658);
   border: 1px solid #049DD9
 }
 
-@media screen and (max-width: 465px){
-  .appimage, .cocimage {
-    height: 200px;
-    max-width: 228px;
-  }
-}
-
-.deleteItem {
+.deleteItem, .hide {
   height: 50px;
   width: 100px;
   margin: 5px;
@@ -211,9 +208,14 @@ button:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
+.hide {
+  align-self: flex-end;
+}
+
 .section1 {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-evenly;
 }
 
@@ -221,6 +223,7 @@ button:hover {
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
+  width: 85%;
 }
 
 .drinkname {
@@ -287,11 +290,39 @@ button:hover {
   margin-bottom: 10px;
 }
 
-.overlay:hover{
+.overlay:hover, .overlay:focus, .overlay:active{
   opacity: 0.9;
 }
 
-@media screen and (min-width: 506px) {
+@media screen and (max-width: 465px){
+  .appimage {
+    height: 200px;
+    max-width: 228;
+  }
+  
+  .cocimage {
+    width: 60%;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width:70%;
+  }
+
+  .staticResults, .dynamicResults{
+    flex-direction: column;
+    align-items: center;
+    float:none;
+  }
+}
+
+@media screen and (min-width: 465px) {
   
 
   .cocktails, .appetizers, .celebrity, .homebutton {
@@ -336,6 +367,7 @@ button:hover {
     margin-right: auto;
     margin-bottom: 10px;
     justify-content: flex-start;
+    flex-direction: row;
   }
 
   .section1{
