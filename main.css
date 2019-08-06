@@ -108,7 +108,7 @@ button:hover, button:focus, button:active {
 
 .homenav, .pagenav, .cocnav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   height: fit-content;
 }
 
@@ -166,7 +166,7 @@ ol {
 .femaleCelResults, .maleCelResults {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .femaleCelResults >li, .maleCelResults >li {
@@ -386,7 +386,7 @@ ol {
 
   .celebritysearch{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     max-width: 750px;
     margin-left: auto;
     margin-right: auto;
