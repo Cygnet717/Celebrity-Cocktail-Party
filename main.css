@@ -297,7 +297,11 @@ ol {
 @media screen and (max-width: 465px){
   .appimage {
     height: 200px;
-    max-width: 228;
+    max-width: 228px;
+  }
+
+  .overlay {
+    opacity: 0.6;
   }
   
   .cocimage {

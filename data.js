@@ -6,8 +6,8 @@ const maleCelebrity = [
         img: 'https://beardoholic.com/wp-content/uploads/2018/01/brad_pitt-721a5984-ae2e-4340-a81e-8f8831d584db.jpg'
     }, 
     {
-        name: 'Humphrey Bogart', 
-        img: 'http://humphreybogart.com/wp-content/uploads/2015/03/villainhero.jpg'
+        name: 'Chris Hemsworth', 
+        img: 'https://i.pinimg.com/originals/58/17/73/58177316fd360e86e8a51cfc2432936e.jpg'
     }, 
     {
         name: 'Robert Downey, Jr.', 
@@ -34,13 +34,53 @@ const maleCelebrity = [
         img:'https://m.media-amazon.com/images/M/MV5BMTUwNTc4MTg4Ml5BMl5BanBnXkFtZTcwNDY2MjkxOA@@._V1_.jpg'
     }, 
     {
-        name: 'Bill Paxton', 
-        img: 'https://cdn.cnn.com/cnnnext/dam/assets/170226103633-02-bill-paxton-exlarge-169.jpg'
+        name: 'Dwayne "The Rock" Johnson', 
+        img: 'https://m.media-amazon.com/images/M/MV5BMTkyNDQ3NzAxM15BMl5BanBnXkFtZTgwODIwMTQ0NTE@._V1_.jpg'
     }, 
     {
         name: 'Robin Williams', 
         img: 'https://secure.i.telegraph.co.uk/multimedia/archive/03003/robinWilliams_3003215k.jpg'
-    }
+    },
+    {
+        name: 'Idris Elba',
+        img: 'https://m.media-amazon.com/images/M/MV5BNzEzMTI2NjEyNF5BMl5BanBnXkFtZTcwNTA0OTE4OA@@._V1_UX214_CR0,0,214,317_AL_.jpg',
+    },
+    {
+        name: 'Morgan Freeman',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTc0MDMyMzI2OF5BMl5BanBnXkFtZTcwMzM2OTk1MQ@@._V1_UX214_CR0,0,214,317_AL_.jpg',
+    },
+    {
+        name: 'Will Smith',
+        img: 'https://m.media-amazon.com/images/M/MV5BNTczMzk1MjU1MV5BMl5BanBnXkFtZTcwNDk2MzAyMg@@._V1_UY317_CR2,0,214,317_AL_.jpg',
+    },
+    {
+        name: 'Samuel L Jackson',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTQ1NTQwMTYxNl5BMl5BanBnXkFtZTYwMjA1MzY1._V1_UX214_CR0,0,214,317_AL_.jpg',
+    },
+    {
+        name: 'Ryan Reynolds',
+        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Deadpool_2_Japan_Premiere_Red_Carpet_Ryan_Reynolds_%28cropped%29.jpg/220px-Deadpool_2_Japan_Premiere_Red_Carpet_Ryan_Reynolds_%28cropped%29.jpg',
+    },
+    {
+        name: 'George Clooney',
+        img: 'https://m.media-amazon.com/images/M/MV5BMjEyMTEyOTQ0MV5BMl5BanBnXkFtZTcwNzU3NTMzNw@@._V1_.jpg',
+    },
+    {
+        name: 'Robert Downey, Jr.',
+        img: 'https://m.media-amazon.com/images/M/MV5BNzg1MTUyNDYxOF5BMl5BanBnXkFtZTgwNTQ4MTE2MjE@._V1_.jpg',
+    },
+    {
+        name: 'Johnny Depp',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTM0ODU5Nzk2OV5BMl5BanBnXkFtZTcwMzI2ODgyNQ@@._V1_.jpg',
+    },
+    {
+        name: 'Denzel Washington',
+        img: 'https://m.media-amazon.com/images/M/MV5BMjE5NDU2Mzc3MV5BMl5BanBnXkFtZTcwNjAwNTE5OQ@@._V1_.jpg',
+    },
+    {
+        name: 'Michael B. Jordan',
+        img: 'https://m.media-amazon.com/images/M/MV5BMjExOTY3NzExM15BMl5BanBnXkFtZTgwOTg1OTAzMTE@._V1_.jpg',
+    },
 ];
 
 
@@ -51,7 +91,7 @@ const femaleCelebrity = [
     }, 
     {
         name: 'Natalie Portman', 
-    img: 'https://timedotcom.files.wordpress.com/2015/05/natalie-portman.jpg'
+        img: 'https://timedotcom.files.wordpress.com/2015/05/natalie-portman.jpg'
     }, 
     {
         name:'Emma Watson', 
@@ -84,5 +124,45 @@ const femaleCelebrity = [
     {
         name:'Anne Hathaway', 
         img:'https://cdn.newsapi.com.au/image/v1/9348593d5c18dbe8ba0d260b1813b85d'
-    }
+    },
+    {
+        name: 'Jennifer Lopez',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTY0OTY3ODA3OV5BMl5BanBnXkFtZTcwMzMyMzQ1NQ@@._V1_UY317_CR32,0,214,317_AL_.jpg',
+    },
+    {
+        name: 'Salma Hayek',
+        img: 'https://m.media-amazon.com/images/M/MV5BMzkyMTk2NzM2Ml5BMl5BanBnXkFtZTcwNDQ4MjYzMg@@._V1_UY317_CR5,0,214,317_AL_.jpg',
+    },
+    {
+        name: 'Sofía Vergara',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTU2MjcyMDg1OV5BMl5BanBnXkFtZTgwMTgwMzQwMDI@._V1_UY317_CR12,0,214,317_AL_.jpg',
+    },
+    {
+        name: 'Penélope Cruz',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTM0Mzc1MTc2OF5BMl5BanBnXkFtZTcwMzE4MzQxMw@@._V1_UX214_CR0,0,214,317_AL_.jpg',
+    },
+    {
+        name: 'Kate Hudson',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTA1NTk0MjMyOTFeQTJeQWpwZ15BbWU3MDA4NzEzMTM@._V1_UY317_CR12,0,214,317_AL_.jpgv',
+    },
+    {
+        name: 'Jennifer Aniston',
+        img: 'https://m.media-amazon.com/images/M/MV5BNjk1MjIxNjUxNF5BMl5BanBnXkFtZTcwODk2NzM4Mg@@._V1_UY317_CR3,0,214,317_AL_.jpg',
+    },
+    {
+        name: 'Sandra Oh',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTMyNzYyNDE4MV5BMl5BanBnXkFtZTcwOTkxMDQ2NA@@._V1_.jpg',
+    },
+    {
+        name: 'Eva Mendes',
+        img: 'https://m.media-amazon.com/images/M/MV5BMjA0MDQwMDI4NF5BMl5BanBnXkFtZTcwMjc1OTU1NA@@._V1_.jpg',
+    },
+    {
+        name: 'Queen Latifah',
+        img: 'https://m.media-amazon.com/images/M/MV5BMjAwNjkxNzkyMF5BMl5BanBnXkFtZTcwNTQ1MTMyMw@@._V1_UY317_CR7,0,214,317_AL_.jpg',
+    },
+    {
+        name: 'Jessica Alba',
+        img: 'https://m.media-amazon.com/images/M/MV5BODYxNzE4OTk5Nl5BMl5BanBnXkFtZTcwODYyMDYzMw@@._V1_UY317_CR12,0,214,317_AL_.jpg',
+    },
 ];
