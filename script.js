@@ -177,8 +177,8 @@ function watchCelebritySearch(){
         event.preventDefault();
         const femaleNames= $('.femaleNames').val();
         const maleNames =$('.maleNames').val();
-        if (femaleNames>10 || maleNames>10){
-            alert('Too many names requested. We can only give you 10 at this time.')
+        if (femaleNames>30 || maleNames>30){
+            alert('Too many names requested. We can only give you 30 at this time.')
         }
         generateFRandom(femaleNames);
         generateMRandom(maleNames);
