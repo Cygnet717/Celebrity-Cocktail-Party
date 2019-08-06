@@ -151,7 +151,7 @@ ol {
 
 .appimage {
   height: 200px;
-  max-width: 228;
+  max-width: 228px;
 }
 
 .cocimage {
@@ -301,7 +301,8 @@ ol {
   }
 
   .overlay {
-    opacity: 0.6;
+    opacity: 1;
+    background: rgba(238, 238, 238, 0.404);
   }
   
   .cocimage {
