@@ -54,8 +54,9 @@ function watchNavClicks() {
 //appetizer functions
 function displayAppResults(responseJson){
     $('.appResults').empty();
+    $('.appalert').addClass('hidden');
     if (responseJson.recipes[0].recipe_id == '47349' || responseJson.count == 0){
-        alert('We don\'t recognise that ingredient. We can give you our most popular recipes')
+        $('.appalert').removeClass('hidden');
     }
     $('#appetizerResults').removeClass('hidden');
     for (let i=0; i<responseJson.recipes.length; i++){
@@ -73,9 +74,8 @@ function displayAppResults(responseJson){
 }
 
 function scrollAppToResults(){
-    console.log ('ready to scroll')
     var $container = $('html,body');
-    var $scrollTo = $('.topRated');
+    var $scrollTo = $('.appetizerform');
 
 	$container.animate({scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop(), scrollLeft: 0},300);
 }
@@ -139,9 +139,8 @@ let userArray = a.slice(0, numNames);
 };
 
 function scrollCelToResults(){
-    console.log ('ready to scroll')
     var $container = $('html,body');
-    var $scrollTo = $('.femresults');
+    var $scrollTo = $('.celebrityform');
 
 	$container.animate({scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop(), scrollLeft: 0},300);
 }
@@ -175,10 +174,11 @@ let userArray = a.slice(0, numNames);
 function watchCelebritySearch(){
     $('.submitCelebrity').on('click', event=>{
         event.preventDefault();
+        $('.celalert').addClass('hidden');
         const femaleNames= $('.femaleNames').val();
         const maleNames =$('.maleNames').val();
         if (femaleNames>30 || maleNames>30){
-            alert('Too many names requested. We can only give you 30 at this time.')
+            $('.celalert').removeClass('hidden');
         }
         generateFRandom(femaleNames);
         generateMRandom(maleNames);
@@ -193,6 +193,7 @@ function cocktailByName(){
     $('.submitCocktailName').on('click', event=>{
         event.preventDefault();
         $('.cocResults').empty();
+        $('.cocalert').addClass('hidden');
         const cocktailname= $('.cocktailname').val();
         fetchNameURL(cocktailname);
     })
@@ -219,6 +220,7 @@ function cocktailByIngredient(){
     $('.submitCocktailIngredient').on('click', event=>{
         event.preventDefault();
         $('.cocResults').empty();
+        $('.cocalert').addClass('hidden');
         let cocktailIng= $('.cocktailIngredient').val();
         cocktailIng = cocktailIng.replace(/\s/g, '%20');
         fetchIngURL(cocktailIng);
@@ -236,7 +238,8 @@ function fetchIngURL(name){
     })
     .then(responseJson => displayShortCocResults(responseJson))
     .catch (err =>{
-        alert(`Something went wrong: ${err.message}`)
+        alert(`Sohomeshing went wrong: ${err.message}`);
+        $('.cocalert').removeClass('hidden');
     })
 }
 
@@ -261,9 +264,10 @@ function generateNonAlcoholic(){
 
 function displayShortCocResults(results){
     $('.cocResults').empty();
+    $('.cocalert').addClass('hidden');
     $('#cocktailResults').removeClass('hidden');
     if (results == ''){
-        alert ('We don\'t recognize that ingredient.')
+        $('.cocalert').removeClass('hidden');
     }
     for (let i=0; i<results.drinks.length; i++){
     $('.cocResults').append(`<li class="dynamicResults">
@@ -282,8 +286,8 @@ function displayShortCocResults(results){
 function displayCocResults(results){
 
     if (results.drinks == null){
-        alert('That name is not recognized, please try another.')
-    }
+        $('.cocalert').removeClass('hidden');
+    } 
     $('#cocktailResults').removeClass('hidden');
     for (let i=0; i<results.drinks.length; i++){
         let displayString =`<li class="staticResults">
@@ -315,9 +319,8 @@ function displayCocResults(results){
 }
 
 function scrollToResults(){
-    console.log ('ready to scroll')
     var $container = $('html,body');
-    var $scrollTo = $('.results');
+    var $scrollTo = $('.cocnav');
 
 	$container.animate({scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop(), scrollLeft: 0},300);
 }
@@ -328,6 +331,7 @@ function generateRandomCocktail(){
     $('.random').on('click', event =>{
         event.preventDefault();
         $('.cocResults').empty();
+        $('.cocalert').addClass('hidden');
         $('#cocktailResults').removeClass('hidden');
         fetch(randCoURL)
         .then(response =>{
@@ -368,12 +372,9 @@ function displayIngList (results, target){
 }
 
 function checkWindowSize(target){
-    console.log ('got this far')
     if (window.matchMedia('(max-width: 465px)').matches){
-        console.log('small');
         $(target).children('.instructions').slideDown();
     } else {
-        console.log ('large');
         $(target).animate({width: '90%'});
         $(target).children('.instructions').delay(600).fadeIn();
     }

@@ -135,7 +135,7 @@ const femaleCelebrity = [
     }, 
     {
         name:'Emma Watson', 
-        img: 'https://hdwallsource.com/img/2014/9/beautiful-emma-watson-42945-43969-hd-wallpapers.jpg'
+        img: 'https://m.media-amazon.com/images/M/MV5BMTQ3ODE2NTMxMV5BMl5BanBnXkFtZTgwOTIzOTQzMjE@._V1_UY317_CR21,0,214,317_AL_.jpg'
     }, 
     {
         name: 'Emma Stone', 
