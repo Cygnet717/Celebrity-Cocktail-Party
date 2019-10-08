@@ -14,7 +14,7 @@ body:after{
   left:0;
   right:0;
   z-index:-1; 
-  background: url(https://i.imgur.com/d5BkuOn.jpg) center center;
+  background: url(https://i.imgur.com/d5BkuOnh.jpg) center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -85,27 +85,27 @@ button:hover, button:focus, button:active {
 }
 
 .homebutton {
-  background: url(https://i.imgur.com/5OhVzT1.jpg) no-repeat center center;
+  background: url(https://i.imgur.com/5OhVzT1m.jpg) no-repeat center center;
   background-size: cover;
   color: white;
 }
 
 .cocktails {
-  background: url(https://i.imgur.com/eBy7Tpd.jpg) no-repeat center center;
+  background: url(https://i.imgur.com/eBy7Tpdm.jpg) no-repeat center center;
   background-size: cover; 
   font-size: 2vh;
   text-shadow: 1px 1px #F2F2F2;
 }
 
 .appetizers {
-  background: url(https://i.imgur.com/YNUtyNn.jpg) no-repeat center center;
+  background: url(https://i.imgur.com/YNUtyNnm.jpg) no-repeat center center;
   background-size: cover;
   font-size: 2vh;
   text-shadow: 1px 1px #F2F2F2;
 }
 
 .celebrity {
-  background: url(https://i.imgur.com/PAVxAgW.jpg) no-repeat center center;
+  background: url(https://i.imgur.com/PAVxAgWm.jpg) no-repeat center center;
   background-size: cover;
   font-size-adjust: inherit;
   font-size: 2vh;
