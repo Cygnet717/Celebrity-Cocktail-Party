@@ -78,7 +78,6 @@ function displayAppResults(res){
                 <img class="appimage" src="${res.results[i].image}">
                 <button class='viewRecepiebutton'>View Recipe</button>
             </div>
-            <p class='creditsText'>Publisher:${res.results[i].creditsText}</p>
             <div class='hidden recepieView'>`;
         
         let steps = res.results[i].analyzedInstructions[0].steps
@@ -96,9 +95,8 @@ function displayAppResults(res){
 
 function displayAppRecepie(){
     $('.appResults').on('click', '.viewRecepiebutton', event => {
-        console.log('show recepie')
         event.preventDefault();
-        $('.recepieView').removeClass('hidden')
+        $(event.target).closest('li').find('.recepieView').removeClass('hidden')
     })
 }
 

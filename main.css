@@ -201,7 +201,9 @@ ol {
 }
 
 #appetizerResults{
-  position: relative;
+  
+  border: 1px solid orange;
+  margin-left: 0;
 }
 
 .recepieView{
@@ -219,6 +221,11 @@ ol {
 
 .recepieView > p {
   text-align: left;
+}
+
+.appResults{
+  border: 1px solid red;
+  margin-left: 0;
 }
 
 /* Celebrity results */
@@ -326,6 +333,7 @@ ol {
 
 .appli {
   display: flex;
+  position: relative;
   flex-direction: column;
   width: 250px;
   text-align: center;
