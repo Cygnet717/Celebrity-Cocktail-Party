@@ -200,12 +200,25 @@ ol {
   font-size: small;
 }
 
+#appetizerResults{
+  position: relative;
+}
+
 .recepieView{
-  position: fixed;
+  position: absolute;
+  
   top:0;
-  left: 0;
+  left:-150px;
+  margin-left: 50%;
+  width: 300px;
+  
   z-index: 5;
+  box-shadow: 10px 10px 5px rgb(73, 73, 73);
   background-color: aquamarine;
+}
+
+.recepieView > p {
+  text-align: left;
 }
 
 /* Celebrity results */

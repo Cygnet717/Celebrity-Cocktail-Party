@@ -71,37 +71,41 @@ function displayAppResults(res){
     }
     $('#appetizerResults').removeClass('hidden');
     for (let i=0; i<res.results.length; i++){
-    $('.appResults').append(`<li class="appli" key='${res.results.id}'>
-    <label>${res.results[i].title}</label>
-    <br>
-    <div class="box">
-        <img class="appimage" src="${res.results[i].image}">
-        <button class='viewRecepiebutton' value='${JSON.stringify(res.results[i].analyzedInstructions[0].steps)}'>View Recipe</button>
-    </div>
-    <p class='creditsText'>Publisher:${res.results[i].creditsText}</p></li><br>`)
+        let string = `<li class="appli" key='${res.results.id}'>
+            <label>${res.results[i].title}</label>
+            <br>
+            <div class="box">
+                <img class="appimage" src="${res.results[i].image}">
+                <button class='viewRecepiebutton'>View Recipe</button>
+            </div>
+            <p class='creditsText'>Publisher:${res.results[i].creditsText}</p>
+            <div class='hidden recepieView'>`;
+        
+        let steps = res.results[i].analyzedInstructions[0].steps
+        for(let j=0; j<steps.length; j++){
+            string = string.concat(`<p>${steps[j].number}.  ${steps[j].step}</p>`)
+        };
+    string = string.concat(`</div>
+    </li>
+    <br>`);
+
+    $('.appResults').append(string)
     }
     scrollAppToResults();
 }
 
 function displayAppRecepie(){
     $('.appResults').on('click', '.viewRecepiebutton', event => {
+        console.log('show recepie')
         event.preventDefault();
         $('.recepieView').removeClass('hidden')
-        console.log(event.target.value[0])
-        console.log(JSON.stringify(event.target.value))
-        let steps = event.target.value;
-        let instructions = '';
-        for(let i=0; i<steps.length; i++){
-            instructions = instructions.concat(`<p>${steps[i].number}.  ${steps[1].step}</p>`)
-        }
-        
-        $('.recepieView').append(instructions);
     })
 }
 
 function hideAppRecepie() {
-    $('.recepieView').on('click', event => {
-        $('.recepieView').addClass('hidden').empty();
+    $('.appResults').on('click', '.recepieView', event => {
+        console.log('close')
+        $('.recepieView').addClass('hidden');
     })
 }
 
@@ -129,7 +133,7 @@ function getApps(URL){
 
 const API_key= config.Spoontacular_api_key || 'api_key'
 const SpoontacularURL = 'https://api.spoonacular.com/recipes/complexSearch?'
-const staticParameters = 'type=appetizer&instructionsRequired=true&number=2&limitLicense=true&addRecipeInformation=true&'
+const staticParameters = 'type=appetizer&instructionsRequired=true&number=3&limitLicense=true&addRecipeInformation=true&'
 //change number back to 50
 
 function makeAppURL(allergen){
