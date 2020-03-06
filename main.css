@@ -196,6 +196,10 @@ ol {
   margin-right: auto;
 }
 
+.creditsText{
+  font-size: small;
+}
+
 /* Celebrity results */
 
 .femaleCelResults, .maleCelResults {
@@ -228,9 +232,11 @@ ol {
   margin-left: auto;
   margin-right: auto;
   padding: 10px;
+  width:fit-content;
   margin-bottom: 10px;
   background: rgba(238, 238, 238, 0.658);
-  border: 1px solid #049DD9
+  border: 2px solid #049DD9;
+  box-shadow: 10px 10px 5px rgb(129, 129, 129);
 }
 
 .deleteItem, .hide {
@@ -297,24 +303,6 @@ ol {
   position: relative;
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  height: 200px;
-  width: 228px;
-  text-decoration: none;
-  font-weight: 500;
-  color: black;
-  text-align: center;
-  z-index: 1;
-  padding-top: 40%;
-  opacity: 0;
-  background: rgba(238, 238, 238, 0.438);
-}
-
 .appli {
   display: flex;
   flex-direction: column;
@@ -328,19 +316,10 @@ ol {
   margin-bottom: 10px;
 }
 
-.overlay:hover, .overlay:focus, .overlay:active{
-  opacity: 0.9;
-}
-
 @media screen and (max-width: 465px){
   .appimage {
     height: 200px;
     max-width: 228px;
-  }
-
-  .overlay {
-    opacity: 1;
-    background: rgba(238, 238, 238, 0.404);
   }
   
   .cocimage {
@@ -378,6 +357,24 @@ ol {
     position: relative;
   }
 
+  .dynamicResults, .staticResults{
+    padding: 30px;
+    width: fit-content;
+    margin-bottom: 30px;
+    justify-content: flex-start;
+    
+  }
+  
+  .staticResults{
+    width: 75%;
+    max-width: 750px;
+  }
+
+  .dynamicResults{
+    width: fit-content;
+    
+  }
+
   .label {
     position: absolute;
     display: flex;
@@ -392,24 +389,6 @@ ol {
 
   h4 {
     text-align: center;
-  }
-
-  .staticResults{
-    width: 75%;
-    max-width: 750px;
-  }
-
-  .dynamicResults{
-    width: 240px;
-    max-width: 750px;
-  }
-
-  .dynamicResults, .staticResults{
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-    justify-content: flex-start;
-    flex-direction: row;
   }
 
   .section1{

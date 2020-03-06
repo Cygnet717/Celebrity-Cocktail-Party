@@ -1,5 +1,3 @@
-console.log ('data.js connected');
-
 const maleCelebrity = [
     {
         name: 'Brad Pitt', 

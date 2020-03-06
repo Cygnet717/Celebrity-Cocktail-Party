@@ -19,6 +19,7 @@ function watchNavClicks() {
         $('.appetizersView').show();
         $('.cocktailsView').hide();
         $('.celebrityView').hide();
+        populateAllergyList(allergylist);
     });
 
     $('nav .celebrity').on('click', event =>{
@@ -49,28 +50,42 @@ function watchNavClicks() {
         $('.namediv').hide();
         $('.ingredientdiv').hide();
     });
+
+    $('.')
 }
 
 //appetizer functions
-function displayAppResults(responseJson){
+const allergylist = ['Dairy', 'Egg', 'Gluten', 'Grain', 'Peanut', 'Seafood', 'Sesame', 'Shellfish', 'Soy', 
+    'Sulfite', 'Tree Nut', 'Wheat']
+
+function populateAllergyList(allergy){
+    for(let i=0; i< allergy.length; i++){
+        $('.selectAllergies').append(`<option value='${allergy[i]}' name='${allergy[i]}'>${allergy[i]}</option>`)
+    }
+}
+
+function displayAppResults(res){
     $('.appResults').empty();
     $('.appalert').addClass('hidden');
-    if (responseJson.recipes[0].recipe_id == '47349' || responseJson.count == 0){
+    if (res.totalResults === 0){
         $('.appalert').removeClass('hidden');
     }
     $('#appetizerResults').removeClass('hidden');
-    for (let i=0; i<responseJson.recipes.length; i++){
-    $('.appResults').append(`<li class="appli">
-    <label>${responseJson.recipes[i].title}</label>
+    for (let i=0; i<res.results.length; i++){
+    $('.appResults').append(`<li class="appli" key='${res.results.id}'>
+    <label>${res.results[i].title}</label>
     <br>
     <div class="box">
-        <img class="appimage" src="${responseJson.recipes[i].image_url}">
-        <a target="_blank" href="${responseJson.recipes[i].source_url}" class="overlay">
-        <b>View Recipe</b></a>
+        <img class="appimage" src="${res.results[i].image}">
+        <button class='viewRecepie'>View Recipe</button>
     </div>
-    <p>Publisher:<a target="_blank" href="${responseJson.recipes[i].publisher_url}">${responseJson.recipes[i].publisher}</a></p></li><br>`)
+    <p class='creditsText'>Publisher:${res.results[i].creditsText}</p></li><br>`)
     }
     scrollAppToResults();
+}
+
+function displayAppRecepie(){
+    
 }
 
 function scrollAppToResults(){
@@ -94,19 +109,25 @@ function getApps(URL){
     })
 }
 
-const food2forkURL = 'https://www.food2fork.com/api/search?'
 
-function makeAppURL(ingredient){
-    const queryList = ingredient.replace(/\s+/g, '%20');
-    const appURL = food2forkURL + 'q=appetizer,' + queryList + '&key=613b3cd66c7ab01c4ea3b354190b9fb6';
+const API_key= config.Spoontacular_api_key || 'api_key'
+const SpoontacularURL = 'https://api.spoonacular.com/recipes/complexSearch?'
+const staticParameters = 'type=appetizer&instructionsRequired=true&number=50&limitLicense=true&addRecipeInformation=true&'
+
+function makeAppURL(allergen){
+    let intolQuery = '';
+    if(allergen !== 'default'){
+        intolQuery = intolQuery.concat('intolerances=' + allergen);
+    };
+    const appURL = SpoontacularURL + 'apiKey='+ API_key + '&' + staticParameters + intolQuery;
     getApps(appURL);
 }
 
-function watchAppIngredientSearch(){
-    $('.submitAppIngredient').on('click', event=>{
+function watchSelectAllergiesSearch(){
+    $('.submitselectAllergies').on('click', event=>{
         event.preventDefault();
-        const appIngredient= $('.appIngredient').val();
-        makeAppURL(appIngredient);
+        const selectAllergies= $('.selectAllergies').val();
+        makeAppURL(selectAllergies);
     })
 }
 
@@ -413,7 +434,7 @@ function deleteCocktail(){
 
 function runPage(){
     watchNavClicks();
-    watchAppIngredientSearch();
+    watchSelectAllergiesSearch();
     watchCelebritySearch();
     cocktailByName();
     cocktailByIngredient();

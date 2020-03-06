@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Celebrity Cocktail Party!</title>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type='text/javascript' src='config.js'></script>
     <link href="main.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Alice|Merriweather|Pacifico&display=swap" rel="stylesheet">
   </head>
@@ -93,14 +94,14 @@
         </nav>
         <form class="appetizerform">
             <h3>Appetizers</h3>
-            <label>Appetizer Ingredient(s):<br>
-            *separate ingredients by a comma<br>
-            </label>
-            <input type="text" class="appIngredient"><br><br>
-            <input type="submit" class="submitAppIngredient submit" value="Search Ingredient"><br>
+            <label>Intolerances:</label>
+            <select class='selectAllergies'>
+                <option value='default'>Select</option>
+            </select> <br><br>
+            <input type="submit" class="submitselectAllergies submit" value="Search Ingredient"><br>
         </form>
         <div id="appetizerResults" class="hidden">
-            <span class="hidden appalert"><p>Ingredient not recognized, here are our most popular recipes!</p><br></span>
+            <span class="hidden appalert"><p>There are no recepies matching those criteria</p><br></span>
             <h3 class="topRated results">Results:</h3>
             <ol class="appResults">
                 <li class="appli">
@@ -108,12 +109,13 @@
                     <br>
                     <div class="box">
                         <img class="appimage" src="https://storage.googleapis.com/gen-atmedia/3/2010/02/55cc6ae010585eb7933c5f96dea94f637330cff4.jpeg">
-                        <a target="_blank" href="" class="overlay"><b>View Recipe</b></a>
+                        <button class='viewRecepie'>View Recipe</button>
                     </div>
-                    <p>Publisher:<a target="_blank" href="">publisher</a></p>
+                    <p class='creditsText'>Publisher:publisher</p>
                 </li><br>
             </ol>
         </div>
+        
     </section>
 
     <section class="celebrityView">
