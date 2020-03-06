@@ -51,7 +51,6 @@ function watchNavClicks() {
         $('.ingredientdiv').hide();
     });
 
-    $('.')
 }
 
 //appetizer functions
@@ -77,7 +76,7 @@ function displayAppResults(res){
     <br>
     <div class="box">
         <img class="appimage" src="${res.results[i].image}">
-        <button class='viewRecepie'>View Recipe</button>
+        <button class='viewRecepiebutton' value='${JSON.stringify(res.results[i].analyzedInstructions[0].steps)}'>View Recipe</button>
     </div>
     <p class='creditsText'>Publisher:${res.results[i].creditsText}</p></li><br>`)
     }
@@ -85,7 +84,25 @@ function displayAppResults(res){
 }
 
 function displayAppRecepie(){
-    
+    $('.appResults').on('click', '.viewRecepiebutton', event => {
+        event.preventDefault();
+        $('.recepieView').removeClass('hidden')
+        console.log(event.target.value[0])
+        console.log(JSON.stringify(event.target.value))
+        let steps = event.target.value;
+        let instructions = '';
+        for(let i=0; i<steps.length; i++){
+            instructions = instructions.concat(`<p>${steps[i].number}.  ${steps[1].step}</p>`)
+        }
+        
+        $('.recepieView').append(instructions);
+    })
+}
+
+function hideAppRecepie() {
+    $('.recepieView').on('click', event => {
+        $('.recepieView').addClass('hidden').empty();
+    })
 }
 
 function scrollAppToResults(){
@@ -112,7 +129,8 @@ function getApps(URL){
 
 const API_key= config.Spoontacular_api_key || 'api_key'
 const SpoontacularURL = 'https://api.spoonacular.com/recipes/complexSearch?'
-const staticParameters = 'type=appetizer&instructionsRequired=true&number=50&limitLicense=true&addRecipeInformation=true&'
+const staticParameters = 'type=appetizer&instructionsRequired=true&number=2&limitLicense=true&addRecipeInformation=true&'
+//change number back to 50
 
 function makeAppURL(allergen){
     let intolQuery = '';
@@ -434,6 +452,8 @@ function deleteCocktail(){
 
 function runPage(){
     watchNavClicks();
+    hideAppRecepie();
+    displayAppRecepie();
     watchSelectAllergiesSearch();
     watchCelebritySearch();
     cocktailByName();
