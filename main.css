@@ -71,6 +71,7 @@ button:hover, button:focus, button:active {
   border: none;
   border-radius: 5px;
   margin: 5px;
+  box-shadow: 10px 10px 5px rgb(73, 73, 73);
 }
 
 .cocnav > button {
@@ -82,6 +83,7 @@ button:hover, button:focus, button:active {
   height: 50px;
   width: 100px;
   margin: 5px;
+  box-shadow: 10px 10px 5px rgb(73, 73, 73);
 }
 
 .homebutton {
@@ -141,7 +143,7 @@ button:hover, button:focus, button:active {
   opacity: 0.8;
   border-radius: 2px;
   cursor: pointer;
-  padding: 5px;
+  padding: 10px;
 }
   
 .submit::after{
@@ -152,6 +154,24 @@ button:hover, button:focus, button:active {
 .submit:hover, .submit:focus, .submit:active {
   opacity: 1;
   right: 0;
+}
+
+input[type=text]{
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  padding: 10px;
+  margin: 10px;
+  width: 400px;
+}
+
+input[type=number]{
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  padding: 10px;
+  margin: 10px;
+  width: 150px;
 }
 
 /* Results pages */
