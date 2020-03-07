@@ -104,7 +104,7 @@ function createPagination(res, URL){
     let pageButtons='';
     for(let i=1; i<pages; i++){
         let offsetNum = 50*(i-1)
-        pageButtons = pageButtons.concat(`<button class='paginationButton' value='${URL+ 'offset=' + offsetNum}'>${i}</button>`)
+        pageButtons = pageButtons.concat(`<button class='paginationButton' value='${URL+ '&offset=' + offsetNum}'>${i}</button>`)
     }
     $('.pagination').empty().append(pageButtons)
 }
@@ -169,13 +169,22 @@ function watchSelectAllergiesSearch(){
     })
 }
 
+function watchPaginationClick(){
+    $('.paginationButton').on('click', event => {
+        event.preventDefault();
+        console.log('pagination click')
+        console.log(event.target.value)
+        //getApps(event.target.value)
+    })
+}
+
 // Celebrity functions
 function generateFRandom(numNames){
     $('.femaleCelResults').empty();
     $('#femaleCelebrityResults').removeClass('hidden');
 for (var a=[],i=0;i<femaleCelebrity.length;++i) a[i]=i;
 
-// http://stackoverflow.com/questions/962802#962890
+    // http://stackoverflow.com/questions/962802#962890
 function shuffle(randomArray) {
   var tmp, current, top = randomArray.length;
   if(top) while(--top) {
@@ -473,6 +482,7 @@ function deleteCocktail(){
 function runPage(){
     watchNavClicks();
     hideAppRecepie();
+    watchPaginationClick();
     displayAppRecepie();
     watchSelectAllergiesSearch();
     watchCelebritySearch();
