@@ -100,27 +100,33 @@
             </select> <br><br>
             <input type="submit" class="submitselectAllergies submit" value="Search Ingredient"><br>
         </form>
+        <div class='thinkingShape hidden'>
+            <div class='first circle'></div>
+            <div class='second circle'></div>
+            <div class='third circle'></div>
+            <div class='fourth circle'></div>
+        </div>
         <div id="appetizerResults" class="hidden">
             <span class="hidden appalert"><p>There are no recepies matching those criteria</p><br></span>
             <h3 class="topRated results">Results:</h3>
-            <div class='thinkingShape'>
-                <div class='first circle'></div>
-                <div class='second circle'></div>
-                <div class='third circle'></div>
-                <div class='fourth circle'></div>
-            </div>
+            <span class='pagination'>
+                Pages:
+                <button  class='paginationButton' value='this fancy url'>1</button>
+            </span>
+            
             <ol class="appResults">
-                <li class="appli">
-                    <label>title</label>
+                <li class="appli" key='1'>
+                    <label>appetizer title</label>
                     <br>
                     <div class="box">
-                        <img class="appimage" src="https://storage.googleapis.com/gen-atmedia/3/2010/02/55cc6ae010585eb7933c5f96dea94f637330cff4.jpeg">
+                        <img class="appimage" src="https://spoonacular.com/recipeImages/637187-312x231.jpg">
                         <button class='viewRecepiebutton'>View Recipe</button>
                     </div>
-                    <p class='creditsText'>Publisher:publisher</p>
                     <div class='hidden recepieView'>
+                        <p>1.  make the food</p>
                     </div>
-                </li><br>
+                </li>
+                <br>
             </ol>
         </div>
         

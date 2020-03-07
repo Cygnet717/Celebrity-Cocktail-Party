@@ -63,12 +63,14 @@ function populateAllergyList(allergy){
     }
 }
 
-function displayAppResults(res){
+function displayAppResults(res, URL){
     $('.appResults').empty();
     $('.appalert').addClass('hidden');
+    $('.thinkingShape').addClass('hidden');
     if (res.totalResults === 0){
         $('.appalert').removeClass('hidden');
     }
+    createPagination(res, URL);
     $('#appetizerResults').removeClass('hidden');
     for (let i=0; i<res.results.length; i++){
         let string = `<li class="appli" key='${res.results.id}'>
@@ -87,15 +89,30 @@ function displayAppResults(res){
     string = string.concat(`</div>
     </li>
     <br>`);
-
-    $('.appResults').append(string)
+    $('.thinkingShape').addClass('hidden');
+    $('.appResults').append(string);
     }
     scrollAppToResults();
+}
+
+function createPagination(res, URL){
+    let responses = res.totalResults;
+    let pages = Math.floor(responses/resultsPerPage);
+    if(responses%resultsPerPage !== 0){
+        pages = pages+1
+    }
+    let pageButtons='';
+    for(let i=1; i<pages; i++){
+        let offsetNum = 50*(i-1)
+        pageButtons = pageButtons.concat(`<button class='paginationButton' value='${URL+ 'offset=' + offsetNum}'>${i}</button>`)
+    }
+    $('.pagination').empty().append(pageButtons)
 }
 
 function displayAppRecepie(){
     $('.appResults').on('click', '.viewRecepiebutton', event => {
         event.preventDefault();
+        $('.recepieView').addClass('hidden');
         $(event.target).closest('li').find('.recepieView').removeClass('hidden')
     })
 }
@@ -122,17 +139,17 @@ function getApps(URL){
         }
         throw new Error(response.statusText);
     })
-    .then(responseJson => displayAppResults(responseJson))
+    .then(responseJson => displayAppResults(responseJson, URL))
     .catch (err =>{
-        alert(`Something went wrong: ${err.message}`)
+        console.log(err)
     })
 }
 
+const resultsPerPage = 50;
+const API_key= config.Spoontacular_api_key || 'api_key';
+const SpoontacularURL = 'https://api.spoonacular.com/recipes/complexSearch?';
+const staticParameters = `type=appetizer&instructionsRequired=true&number=${resultsPerPage}&limitLicense=true&addRecipeInformation=true&`;
 
-const API_key= config.Spoontacular_api_key || 'api_key'
-const SpoontacularURL = 'https://api.spoonacular.com/recipes/complexSearch?'
-const staticParameters = 'type=appetizer&instructionsRequired=true&number=3&limitLicense=true&addRecipeInformation=true&'
-//change number back to 50
 
 function makeAppURL(allergen){
     let intolQuery = '';
@@ -146,6 +163,7 @@ function makeAppURL(allergen){
 function watchSelectAllergiesSearch(){
     $('.submitselectAllergies').on('click', event=>{
         event.preventDefault();
+        $('.thinkingShape').removeClass('hidden');
         const selectAllergies= $('.selectAllergies').val();
         makeAppURL(selectAllergies);
     })
