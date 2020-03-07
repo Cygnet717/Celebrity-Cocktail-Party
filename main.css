@@ -445,3 +445,34 @@ ol {
     font-size: 3vh;
   }
 }
+
+/* thinking shape */
+.circle{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #F052F2;
+  position: absolute;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+.second{
+  animation-delay: 1s;
+ }
+ .third{
+  animation-delay: 2s;
+ }
+ .fourth{
+  animation-delay: 3s;
+ }
+
+ @keyframes example {
+  0%   {background-color:#F052F2; left:0px; top:0px;}
+  25%  {background-color:#049DD9; left:100px; top:0px;}
+  50%  {background-color:#B0D1D9; left:100px; top:100px;}
+  75%  {background-color:#F2CD5C; left:0px; top:100px;}
+  100% {background-color:#F052F2; left:0px; top:0px;}
+}
