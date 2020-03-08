@@ -64,7 +64,6 @@ function populateAllergyList(allergy){
 }
 
 function displayAppResults(res, URL){
-    $('.appResults').empty();
     $('.appalert').addClass('hidden');
     $('.thinkingShape').addClass('hidden');
     if (res.totalResults === 0){
@@ -98,15 +97,21 @@ function displayAppResults(res, URL){
 function createPagination(res, URL){
     let responses = res.totalResults;
     let pages = Math.floor(responses/resultsPerPage);
+    let pageOffset = res.offset;
     if(responses%resultsPerPage !== 0){
         pages = pages+1
     }
     let pageButtons='';
     for(let i=1; i<pages; i++){
         let offsetNum = 50*(i-1)
-        pageButtons = pageButtons.concat(`<button class='paginationButton' value='${URL+ '&offset=' + offsetNum}'>${i}</button>`)
+        if(offsetNum === pageOffset){
+            pageButtons = pageButtons.concat(`<button class='paginationButton' style='background-color: white; border: 2px solid #F052F2; box-shadow: none' value='${URL+ '&offset=' + offsetNum}'>${i}</button>`)
+        } else {
+            pageButtons = pageButtons.concat(`<button class='paginationButton' value='${URL+ '&offset=' + offsetNum}'>${i}</button>`)
+        }
     }
-    $('.pagination').empty().append(pageButtons)
+    $('.pagination').empty();
+    $('.pagination').append(pageButtons)
 }
 
 function displayAppRecepie(){
@@ -119,7 +124,6 @@ function displayAppRecepie(){
 
 function hideAppRecepie() {
     $('.appResults').on('click', '.recepieView', event => {
-        console.log('close')
         $('.recepieView').addClass('hidden');
     })
 }
@@ -132,6 +136,11 @@ function scrollAppToResults(){
 }
 
 function getApps(URL){
+    let string = URL;
+    let checkString = URL.indexOf('&offset=');
+        if(checkString !== -1){
+            string = string.slice(0, checkString);
+        }
     fetch(URL)
     .then(response =>{
         if (response.ok){
@@ -139,7 +148,7 @@ function getApps(URL){
         }
         throw new Error(response.statusText);
     })
-    .then(responseJson => displayAppResults(responseJson, URL))
+    .then(responseJson => displayAppResults(responseJson, string))
     .catch (err =>{
         console.log(err)
     })
@@ -163,6 +172,8 @@ function makeAppURL(allergen){
 function watchSelectAllergiesSearch(){
     $('.submitselectAllergies').on('click', event=>{
         event.preventDefault();
+        $('.appResults').empty();
+        $('.pagination').empty();
         $('.thinkingShape').removeClass('hidden');
         const selectAllergies= $('.selectAllergies').val();
         makeAppURL(selectAllergies);
@@ -170,11 +181,12 @@ function watchSelectAllergiesSearch(){
 }
 
 function watchPaginationClick(){
-    $('.paginationButton').on('click', event => {
+    $('.pagination').on('click', '.paginationButton', event => {
         event.preventDefault();
-        console.log('pagination click')
-        console.log(event.target.value)
-        //getApps(event.target.value)
+        $('.appResults').empty();
+        
+        $('.thinkingShape').removeClass('hidden');
+        getApps(event.target.value)
     })
 }
 

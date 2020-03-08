@@ -106,14 +106,13 @@
             <div class='third circle'></div>
             <div class='fourth circle'></div>
         </div>
-        <div id="appetizerResults" class="">
+        <div id="appetizerResults" class="hidden">
             <span class="hidden appalert"><p>There are no recepies matching those criteria</p><br></span>
-            <h3 class="topRated results">Results:</h3>
-            <span class='pagination'>
-                Pages:
-                <button  class='paginationButton' value='https://api.spoonacular.com/recipes/complexSearch?instructionsRequired=true&number=50&limitLicense=true&apiKey=e31330a3bd494aaa8323e1a4293b775d&type=appetizer&addRecipeInformation=true&offset=200'>1</button>
-                <button  class='paginationButton' value='this other value'>1</button>
-            </span>
+            <h3 class="results">Results:</h3>
+            <div class='pagination'>
+                <button class='paginationButton' style='background-color: white; border: 2px solid #F052F2; box-shadow: none' value='https://api.spoonacular.com/recipes/complexSearch?apiKey=e31330a3bd494aaa8323e1a4293b775d&type=appetizer&instructionsRequired=true&number=50&limitLicense=true&addRecipeInformation=true&&offset=0'>1</button>
+                <button class='paginationButton' value='https://api.spoonacular.com/recipes/complexSearch?apiKey=e31330a3bd494aaa8323e1a4293b775d&type=appetizer&instructionsRequired=true&number=50&limitLicense=true&addRecipeInformation=true&&offset=50'>2</button>
+            </div>
             
             <ol class="appResults">
                 <li class="appli" key='1'>

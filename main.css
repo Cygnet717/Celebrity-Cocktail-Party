@@ -6,19 +6,15 @@
     display: none;
 }
 
-body:after{
-  content:"";
-  position:fixed; 
-  top:0;
-  height:100vh; 
-  left:0;
-  right:0;
-  z-index:-1; 
-  background: url('./Images/cocktailLightBg.jpg') center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+html{
+    background-image: url('./Images/cocktailLightBg.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
 }
 
 input[type=text]{
@@ -222,8 +218,25 @@ ol {
 }
 
 .appResults{
-  
   margin-left: 0;
+}
+
+.pagination {
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.paginationButton{
+  border: none;
+  height: 30px;
+  width: 30px;
+  background-color: rgba(239, 82, 242, 0.7);
+  border: 2px solid white;
+  border-radius: 50%;
+  margin: 4px;
+  box-shadow: 2px 5px 3px grey;
 }
 
 /* Celebrity results */
