@@ -174,6 +174,7 @@ function watchSelectAllergiesSearch(){
         event.preventDefault();
         $('.appResults').empty();
         $('.pagination').empty();
+        $('.circle').css({'animation-name': 'loadingCircles', 'top': '0'})
         $('.thinkingShape').removeClass('hidden');
         const selectAllergies= $('.selectAllergies').val();
         makeAppURL(selectAllergies);
@@ -184,7 +185,8 @@ function watchPaginationClick(){
     $('.pagination').on('click', '.paginationButton', event => {
         event.preventDefault();
         $('.appResults').empty();
-        
+        $('.circle').css({'animation-name': 'lowerLoadingCircles', 'top': '60px'})
+        $(event.target).css('box-shadow', 'none')
         $('.thinkingShape').removeClass('hidden');
         getApps(event.target.value)
     })
