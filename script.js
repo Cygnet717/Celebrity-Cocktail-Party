@@ -79,13 +79,16 @@ function displayAppResults(res, URL){
                 <img class="appimage" src="${res.results[i].image}">
                 <button class='viewRecepiebutton'>View Recipe</button>
             </div>
-            <div class='hidden recepieView'>`;
+            <div class='hidden recepieView'>
+                <span class='close'>&#x02717;</span>
+                <div class='instructions'>`;
         
         let steps = res.results[i].analyzedInstructions[0].steps
         for(let j=0; j<steps.length; j++){
             string = string.concat(`<p>${steps[j].number}.  ${steps[j].step}</p>`)
         };
     string = string.concat(`</div>
+    </div>
     </li>
     <br>`);
     $('.thinkingShape').addClass('hidden');

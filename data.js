@@ -119,6 +119,66 @@ const maleCelebrity = [
         name: 'Daniel Craig',
         img: 'https://m.media-amazon.com/images/M/MV5BMjEzMjk4NDU4MF5BMl5BanBnXkFtZTcwMDMyNjQzMg@@._V1_UX214_CR0,0,214,317_AL_.jpg',
     },
+    {
+        name: 'Justin Timberlake',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTUwMjE1MjU2N15BMl5BanBnXkFtZTcwNjk0ODY1NA@@._V1_SY1000_CR0,0,740,1000_AL_.jpg'
+    },
+    {
+        name: 'James Franco',
+        img: 'https://m.media-amazon.com/images/M/MV5BMjA4MzMzNDM5MF5BMl5BanBnXkFtZTgwMjQ0MDk0NDM@._V1_SY1000_CR0,0,666,1000_AL_.jpg'
+    },
+    {
+        name: 'Bradley Cooper',
+        img: 'https://m.media-amazon.com/images/M/MV5BMjM0OTIyMzY1M15BMl5BanBnXkFtZTgwMTg0OTE0NzE@._V1_SY1000_CR0,0,650,1000_AL_.jpg'
+    },
+    {
+        name: 'Chris Evans',
+        img: 'https://tvguide1.cbsistatic.com/mediabin/showcards/celebs/c/thumbs/chris-evans_144489_768x1024.png'
+    },
+    {
+        name: 'Christian Bale',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTkxMzk4MjQ4MF5BMl5BanBnXkFtZTcwMzExODQxOA@@._V1_SY1000_CR0,0,665,1000_AL_.jpg'
+    },
+    {
+        name: 'John Krasinski',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTc3MzY3MjQ3OV5BMl5BanBnXkFtZTcwODI3NjQxMw@@._V1_.jpg'
+    },
+    {
+        name: 'Milo Ventimiglia',
+        img: 'https://m.media-amazon.com/images/M/MV5BZWFlMjU0OWYtNDI3Mi00MmVmLWFkNjUtNWVkYWJhYjNlMDdiXkEyXkFqcGdeQXVyOTE0NjgwMjY@._V1_SY1000_CR0,0,666,1000_AL_.jpg'
+    },
+    {
+        name: 'Henry Cavill',
+        img: 'https://m.media-amazon.com/images/M/MV5BODI0MTYzNTIxNl5BMl5BanBnXkFtZTcwNjg2Nzc0NA@@._V1_.jpg'
+    },
+    {
+        name: 'Jason Momoa',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTI5MTU5NjM1MV5BMl5BanBnXkFtZTcwODc4MDk0Mw@@._V1_SY1000_CR0,0,666,1000_AL_.jpg'
+    },
+    {
+        name: 'Tom Hardy',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTQ3ODEyNjA4Nl5BMl5BanBnXkFtZTgwMTE4ODMyMjE@._V1_.jpg'
+    },
+    {
+        name: 'Ryan Gosling',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTQzMjkwNTQ2OF5BMl5BanBnXkFtZTgwNTQ4MTQ4MTE@._V1_SY1000_CR0,0,790,1000_AL_.jpg'
+    },
+    {
+        name: 'Oscar Isaac',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTQ2ODE2NDQ5OF5BMl5BanBnXkFtZTcwOTU3OTM1OQ@@._V1_SY1000_CR0,0,710,1000_AL_.jpg'
+    },
+    {
+        name: 'Joe Manganiello',
+        img: 'https://m.media-amazon.com/images/M/MV5BMjI3NTkyMDYyOF5BMl5BanBnXkFtZTgwNjkyNzc4OTE@._V1_.jpg'
+    },
+    {
+        name: 'Jensen Ackles',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTcxMDk3NTgzNl5BMl5BanBnXkFtZTcwMTUzNzY3OQ@@._V1_SY1000_CR0,0,749,1000_AL_.jpg'
+    },
+    {
+        name: 'Jared Padalecki',
+        img: 'https://m.media-amazon.com/images/M/MV5BMjA2ODMyMDgxMl5BMl5BanBnXkFtZTcwNjAwMjA3NA@@._V1_SY1000_CR0,0,681,1000_AL_.jpg'
+    },
 ];
 
 
@@ -243,4 +303,96 @@ const femaleCelebrity = [
         name: 'Reese Witherspoon',
         img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Reese_Witherspoon_at_TIFF_2014.jpg/220px-Reese_Witherspoon_at_TIFF_2014.jpg',
     },
+    {
+        name: 'Winona Ryder',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTQ3NzM3MTc2NF5BMl5BanBnXkFtZTcwODMxNjA0NA@@._V1_SY1000_CR0,0,734,1000_AL_.jpg'
+    },
+    {
+        name: 'Isla Fisher',
+        img: 'https://m.media-amazon.com/images/M/MV5BODY3MDQ4MTQ4Nl5BMl5BanBnXkFtZTgwNDU2NzU1MDE@._V1_SY1000_SX802_AL_.jpg'
+    },
+    {
+        name: 'Lena Headey',
+        img: 'https://m.media-amazon.com/images/M/MV5BMzIwMjIwNjg0M15BMl5BanBnXkFtZTgwOTI3MDEzMDE@._V1_SY1000_CR0,0,765,1000_AL_.jpg'
+    },
+    {
+        name: 'Amy Adams',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTg2NTk2MTgxMV5BMl5BanBnXkFtZTgwNjcxMjAzMTI@._V1_SY1000_CR0,0,654,1000_AL_.jpg'
+    },
+    {
+        name: 'Anna Paquin',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTcxNzM2NjMzNl5BMl5BanBnXkFtZTgwOTE2Njk0MjE@._V1_.jpg'
+    },
+    {
+        name: 'Nicki Minaj',
+        img: 'https://m.media-amazon.com/images/M/MV5BMjI4NzgzOTQyMV5BMl5BanBnXkFtZTgwNzY3MTA4ODE@._V1_SY1000_CR0,0,774,1000_AL_.jpg'
+    },
+    {
+        name: 'Audrey Hepburn',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTM4MTY3NTQyMF5BMl5BanBnXkFtZTYwMTk2MzQ2._V1_.jpg'
+    },
+    {
+        name: 'Milla Jovovich',
+        img: 'https://m.media-amazon.com/images/M/MV5BNzA1Nzc4NjYwNV5BMl5BanBnXkFtZTcwNjA2NjY1Mg@@._V1_SY1000_CR0,0,790,1000_AL_.jpg'
+    },
+    {
+        name: 'Natalie Dormer',
+        img: 'https://m.media-amazon.com/images/M/MV5BNjM4NjQwMzE1Ml5BMl5BanBnXkFtZTgwNjg5MTM0NzE@._V1_.jpg'
+    },
+    {
+        name: 'Hayden Panettiere',
+        img: 'https://m.media-amazon.com/images/M/MV5BOTY2OTI1NzA0NV5BMl5BanBnXkFtZTcwOTczMTA2Mw@@._V1_.jpg'
+    },
+    {
+        name: 'Rachel McAdams',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTY5ODcxMDU4NV5BMl5BanBnXkFtZTcwMjAzNjQyNQ@@._V1_SY1000_CR0,0,689,1000_AL_.jpg'
+    },
+    {
+        name: 'Blake Lively',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTU2Njk0NTUyNl5BMl5BanBnXkFtZTcwODE0OTgyNw@@._V1_SY1000_CR0,0,757,1000_AL_.jpg'
+    },
+    {
+        name: 'Olivia Wilde',
+        img: 'https://m.media-amazon.com/images/M/MV5BNjRmMThkZTItNGQ3Yy00NDc0LWE5OWMtYzkxMDRkMzI1OTcyXkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_SY1000_CR0,0,666,1000_AL_.jpg'
+    },
+    {
+        name: 'Rihanna',
+        img: 'https://m.media-amazon.com/images/M/MV5BMzVkMTUzNjMtMjYwNC00MmI4LTk0NWQtMGI0MmM1YzIyZjI3XkEyXkFqcGdeQXVyOTAyMDgxODQ@._V1_.jpg'
+    },
+    {
+        name: 'Kate Beckinsale',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTM3MzY2MDYwOF5BMl5BanBnXkFtZTcwODQ3MDA0Nw@@._V1_SY1000_CR0,0,665,1000_AL_.jpg'
+    },
+    {
+        name: 'Selena Gomez',
+        img: 'https://m.media-amazon.com/images/M/MV5BMjAwNTE2MDMyMl5BMl5BanBnXkFtZTgwMjAyODM3MTI@._V1_SY1000_CR0,0,749,1000_AL_.jpg'
+    },
+    {
+        name: 'Gabrielle Union',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTkwNjUzMDM2Nl5BMl5BanBnXkFtZTcwNDgyMDY4Mg@@._V1_.jpg'
+    },
+    {
+        name: 'Adriana Lima',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTMzNDUwNzM5NF5BMl5BanBnXkFtZTcwNTQwMzE3Mg@@._V1_.jpg'
+    },
+    {
+        name: 'Kate Upton',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTk3MTA2ODQ1MF5BMl5BanBnXkFtZTcwMjkwMDYxNw@@._V1_SY1000_CR0,0,666,1000_AL_.jpg'
+    },
+    {
+        name: 'Megan Fox',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTc5MjgyMzk4NF5BMl5BanBnXkFtZTcwODk2OTM4Mg@@._V1_.jpg'
+    },
+    {
+        name: 'Cate Blanchett',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTc1MDI0MDg1NV5BMl5BanBnXkFtZTgwMDM3OTAzMTE@._V1_SY1000_CR0,0,692,1000_AL_.jpg'
+    },
+    {
+        name: 'Kate Winslet',
+        img: 'https://cdn.britannica.com/38/130638-050-DBCE19EE/Kate-Winslet-2009.jpg'
+    },
+    {
+        name: 'Jenna Fischer',
+        img: 'https://m.media-amazon.com/images/M/MV5BMTMyOTYzODQ5MF5BMl5BanBnXkFtZTcwMjE3MDgzMQ@@._V1_.jpg'
+    }
 ];

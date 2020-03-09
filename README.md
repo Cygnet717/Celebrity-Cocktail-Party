@@ -8,15 +8,15 @@ With this app the user can find cocktail recepies and appetizer recepies to serv
 ### Screen Shots: 
 
 Home screen:
-![homescreen](./screenshots/homepage.png)
+![homescreen](/screenshots/homepage.png)
 Cocktail search options:
 ![cocktailSearch](/screenshots/cocktailSearchOptions.png)
 Cocktail search result:
-![cocktailResult](https://i.imgur.com/GLaq9wD.png)
+![cocktailResult](/screenshots/drinkResults.png)
 Appetizer search result:
-![appetizerResult](https://i.imgur.com/LNSXd6A.png)
+![appetizerResult](appetizerResults.png)
 Celebrity Search result:
-![celebrityResult](https://i.imgur.com/v0B09oo.png) 
+![celebrityResult](celebrityNames.png) 
 
 ## Technologies used include:
 
