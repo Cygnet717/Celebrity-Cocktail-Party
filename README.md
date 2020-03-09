@@ -8,9 +8,9 @@ With this app the user can find cocktail recepies and appetizer recepies to serv
 ### Screen Shots: 
 
 Home screen:
-![homescreen](https://i.imgur.com/2uRjKqZ.png)
+![homescreen](./screenshots/homepage.png)
 Cocktail search options:
-![cocktailSearch](https://i.imgur.com/6ECUsUf.png)
+![cocktailSearch](/screenshots/cocktailSearchOptions.png)
 Cocktail search result:
 ![cocktailResult](https://i.imgur.com/GLaq9wD.png)
 Appetizer search result:
@@ -20,7 +20,7 @@ Celebrity Search result:
 
 ## Technologies used include:
 
-Food2Fork API https://www.food2fork.com/about/api
+Spoonacular  https://spoonacular.com/food-api
 
 TheCocktailDB https://www.thecocktaildb.com/api.php
 
