@@ -278,14 +278,16 @@ ol {
   justify-content: space-around;
 }
 
-.femaleCelResults >li, .maleCelResults >li {
+.celebrityListItem{
   margin: 5px;
-  padding: 5px;
+  padding: 10px;
   width: fit-content;
   list-style: none;
   text-align: center;
   background: rgba(238, 238, 238, 0.658);
   border: 1px solid #049DD9;
+  width: 140px;
+  box-shadow: 5px 5px 3px grey;
 }
 
 .celimage {
@@ -385,6 +387,7 @@ ol {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
+  box-shadow: 5px 5px 8px grey;
 }
 
 @media screen and (max-width: 465px){
@@ -448,17 +451,6 @@ ol {
     width: 80%;
     height: 80%;
     margin: 10%;
-    /*position: fixed;
-    top:0;
-    left:0;
-    
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.63);
-    -webkit-animation-name: zoom;
-    -webkit-animation-duration: 0.6s;
-    animation-name: zoom;
-    animation-duration: 0.6s;
-    overflow: auto;*/
   }
 
   .instructions{
@@ -503,6 +495,16 @@ ol {
     max-width: 750px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .femaleCelResults, .maleCelResults{
+    margin-left: 70px;
+  margin-right: 70px;
+  }
+
+  .celebrityListItem{
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
 

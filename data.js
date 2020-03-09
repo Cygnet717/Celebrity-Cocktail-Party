@@ -185,11 +185,11 @@ const maleCelebrity = [
 const femaleCelebrity = [
     {
         name: 'Jennifer Lawrence', 
-        img:'https://timedotcom.files.wordpress.com/2015/01/jennifer-lawrence.jpg'
+        img:'https://m.media-amazon.com/images/M/MV5BOTU3NDE5MDQ4MV5BMl5BanBnXkFtZTgwMzE5ODQ3MDI@._V1_SY1000_CR0,0,626,1000_AL_.jpg'
     }, 
     {
         name: 'Natalie Portman', 
-        img: 'https://timedotcom.files.wordpress.com/2015/05/natalie-portman.jpg'
+        img: 'https://m.media-amazon.com/images/M/MV5BMTQ3ODE3Mjg1NV5BMl5BanBnXkFtZTcwNzA4ODcxNA@@._V1_SY1000_SX746_AL_.jpg'
     }, 
     {
         name:'Emma Watson', 
@@ -321,7 +321,7 @@ const femaleCelebrity = [
     },
     {
         name: 'Anna Paquin',
-        img: 'https://m.media-amazon.com/images/M/MV5BMTcxNzM2NjMzNl5BMl5BanBnXkFtZTgwOTE2Njk0MjE@._V1_.jpg'
+        img: 'https://upload.wikimedia.org/wikipedia/commons/c/ca/Anna_Paquin_Comic-Con_2012.jpg'
     },
     {
         name: 'Nicki Minaj',

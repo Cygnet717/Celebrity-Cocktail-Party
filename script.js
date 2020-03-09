@@ -217,7 +217,7 @@ let userArray = a.slice(0, numNames);
 
     for (let i=0; i<userArray.length; i++){
         let location = userArray[i];
-        $('.femaleCelResults').append(`<li>${femaleCelebrity[location].name}<br>
+        $('.femaleCelResults').append(`<li class='celebrityListItem'>${femaleCelebrity[location].name}<br>
         <img class="celimage" src="${femaleCelebrity[location].img}"></li>`);
     }
     scrollCelToResults();
@@ -251,7 +251,7 @@ a = shuffle(a);
 let userArray = a.slice(0, numNames);
     for (let i=0; i<userArray.length; i++){
         let location = userArray[i];
-        $('.maleCelResults').append(`<li>${maleCelebrity[location].name}<br>
+        $('.maleCelResults').append(`<li class='celebrityListItem'>${maleCelebrity[location].name}<br>
         <img class="celimage" src="${maleCelebrity[location].img}"></li>`);
     }
 };
