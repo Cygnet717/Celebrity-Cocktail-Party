@@ -1,54 +1,48 @@
 'use strict';
 
-$('.cocktailsView').hide();
-$('.appetizersView').hide();
-$('.celebrityView').hide();
-$('.namediv').hide();
-$('.ingredientdiv').hide();
-
 function watchNavClicks() {
     $('nav .cocktails').on('click', event =>{
-        $('.home').hide();
-        $('.cocktailsView').show();
-        $('.appetizersView').hide();
-        $('.celebrityView').hide();
+        $('.home').addClass('hidden');
+        $('.cocktailsView').removeClass('hidden');
+        $('.appetizersView').addClass('hidden');
+        $('.celebrityView').addClass('hidden');
     });
 
     $('nav .appetizers').on('click', event =>{
-        $('.home').hide();
-        $('.appetizersView').show();
-        $('.cocktailsView').hide();
-        $('.celebrityView').hide();
+        $('.home').addClass('hidden');
+        $('.appetizersView').removeClass('hidden');
+        $('.cocktailsView').addClass('hidden');
+        $('.celebrityView').addClass('hidden');
         populateAllergyList(allergylist);
     });
 
     $('nav .celebrity').on('click', event =>{
-        $('.home').hide();
-        $('.appetizersView').hide();
-        $('.cocktailsView').hide();
-        $('.celebrityView').show();
+        $('.home').addClass('hidden');
+        $('.appetizersView').addClass('hidden');
+        $('.cocktailsView').addClass('hidden');
+        $('.celebrityView').removeClass('hidden');
     });
 
     $('nav .homebutton').on('click', event=>{
-        $('.home').show();
-        $('.appetizersView').hide();
-        $('.cocktailsView').hide();
-        $('.celebrityView').hide();
+        $('.home').removeClass('hidden');
+        $('.appetizersView').addClass('hidden');
+        $('.cocktailsView').addClass('hidden');
+        $('.celebrityView').addClass('hidden');
     });
 
     $('.byname').on('click', event =>{
-        $('.namediv').show();
-        $('.ingredientdiv').hide();
+        $('.namediv').removeClass('hidden');
+        $('.ingredientdiv').addClass('hidden');
     });
 
     $('.byingredient').on('click', event =>{
-        $('.namediv').hide();
-        $('.ingredientdiv').show();
+        $('.namediv').addClass('hidden');
+        $('.ingredientdiv').removeClass('hidden');
     });
 
     $('.nonalcoholic, .random').on('click', event =>{
-        $('.namediv').hide();
-        $('.ingredientdiv').hide();
+        $('.namediv').addClass('hidden');
+        $('.ingredientdiv').addClass('hidden');
     });
 
 }
@@ -81,7 +75,7 @@ function displayAppResults(res, URL){
             </div>
             <div class='hidden recepieView'>
                 <span class='close'>&#x02717;</span>
-                <div class='instructions'>`;
+                <div class='appInstructions'>`;
         
         let steps = res.results[i].analyzedInstructions[0].steps
         for(let j=0; j<steps.length; j++){
@@ -135,7 +129,7 @@ function scrollAppToResults(){
     var $container = $('html,body');
     var $scrollTo = $('.appetizerform');
 
-	$container.animate({scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop(), scrollLeft: 0},300);
+	$container.animate({scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop(), scrollLeft: 0},400).delay(800);
 }
 
 function getApps(URL){
@@ -199,56 +193,44 @@ function watchPaginationClick(){
 function generateFRandom(numNames){
     $('.femaleCelResults').empty();
     $('#femaleCelebrityResults').removeClass('hidden');
-for (var a=[],i=0;i<femaleCelebrity.length;++i) a[i]=i;
-
-    // http://stackoverflow.com/questions/962802#962890
-function shuffle(randomArray) {
-  var tmp, current, top = randomArray.length;
-  if(top) while(--top) {
-    current = Math.floor(Math.random() * (top + 1));
-    tmp = randomArray[current];
-    randomArray[current] = randomArray[top];
-    randomArray[top] = tmp;
-  };
-  return randomArray;
-}
-a = shuffle(a);
-let userArray = a.slice(0, numNames);
+    for (var a=[],i=0;i<femaleCelebrity.length;++i) a[i]=i;
+        function shuffle(randomArray) {
+            var tmp, current, top = randomArray.length;
+            if(top) while(--top) {
+                current = Math.floor(Math.random() * (top + 1));
+                tmp = randomArray[current];
+                randomArray[current] = randomArray[top];
+                randomArray[top] = tmp;
+            };
+        return randomArray;
+    }
+    a = shuffle(a);
+    let userArray = a.slice(0, numNames);
 
     for (let i=0; i<userArray.length; i++){
         let location = userArray[i];
         $('.femaleCelResults').append(`<li class='celebrityListItem'>${femaleCelebrity[location].name}<br>
         <img class="celimage" src="${femaleCelebrity[location].img}"></li>`);
     }
-    scrollCelToResults();
 };
-
-function scrollCelToResults(){
-    var $container = $('html,body');
-    var $scrollTo = $('.celebrityform');
-
-	$container.animate({scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop(), scrollLeft: 0},300);
-}
 
 function generateMRandom(numNames){
     $('.maleCelResults').empty();
     $('#maleCelebrityResults').removeClass('hidden');
-for (var a=[],i=0;i<maleCelebrity.length;++i) a[i]=i;
+    for (var a=[],i=0;i<maleCelebrity.length;++i) a[i]=i;
+        function shuffle(randomArray) {
+        var tmp, current, top = randomArray.length;
+        if(top) while(--top) {
+            current = Math.floor(Math.random() * (top + 1));
+            tmp = randomArray[current];
+            randomArray[current] = randomArray[top];
+            randomArray[top] = tmp;
+        };
+    return randomArray;
+    }
+    a = shuffle(a);
 
-// http://stackoverflow.com/questions/962802#962890
-function shuffle(randomArray) {
-  var tmp, current, top = randomArray.length;
-  if(top) while(--top) {
-    current = Math.floor(Math.random() * (top + 1));
-    tmp = randomArray[current];
-    randomArray[current] = randomArray[top];
-    randomArray[top] = tmp;
-  };
-  return randomArray;
-}
-a = shuffle(a);
-
-let userArray = a.slice(0, numNames);
+    let userArray = a.slice(0, numNames);
     for (let i=0; i<userArray.length; i++){
         let location = userArray[i];
         $('.maleCelResults').append(`<li class='celebrityListItem'>${maleCelebrity[location].name}<br>
@@ -407,7 +389,7 @@ function scrollToResults(){
     var $container = $('html,body');
     var $scrollTo = $('.cocnav');
 
-	$container.animate({scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop(), scrollLeft: 0},300);
+	$container.animate({scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop(), scrollLeft: 0},400).delay(800);
 }
 
 const randCoURL= 'https://www.thecocktaildb.com/api/json/v1/1/random.php'

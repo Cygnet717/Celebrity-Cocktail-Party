@@ -14,7 +14,8 @@ html{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-
+    animation-name: fadeIn;
+    animation-duration: 1s;
 }
 
 input[type=text]{
@@ -110,6 +111,11 @@ button:hover, button:focus, button:active {
   text-shadow: 1px 1px #F2F2F2;
 }
 
+.fadeEffect, .namediv, .ingredientdiv{
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}
+
 .inactive {
   color: rgb(22, 140, 187);
   height: 66px;
@@ -198,6 +204,8 @@ ol {
 
 #appetizerResults{
   margin-left: 0;
+  animation-name: fadeIn;
+  animation-duration: 1s;
 }
 
 .recepieView{
@@ -231,7 +239,7 @@ ol {
   margin: 10px;
 }
 
-.instructions{
+.appInstructions{
   background-color: aquamarine;
   z-index: 5;
   position: relative;
@@ -243,7 +251,7 @@ ol {
   padding-bottom: 15px;
 }
 
-.instructions > p {
+.appInstructions > p {
   text-align: left;
   word-wrap: break-word;
 }
@@ -276,6 +284,13 @@ ol {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0}
+  to {opacity: 1}
 }
 
 .celebrityListItem{
@@ -447,13 +462,14 @@ ol {
   .dynamicResults{
     width: fit-content; 
   } 
+
   .recepieView{
     width: 80%;
     height: 80%;
     margin: 10%;
   }
 
-  .instructions{
+  .appInstructions{
     position: absolute;
     top: 50%;
     -ms-transform: translateY(-50%);
