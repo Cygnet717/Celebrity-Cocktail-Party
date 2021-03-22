@@ -547,27 +547,18 @@ ol {
   background-color: #F052F2;
   position: absolute;
   animation-name: loadingCircles;
-  animation-duration: 4s;
-  animation-direction: alternate;
+  animation-duration: 3s;
   animation-iteration-count: infinite;
 }
 
 .second{
-  animation-delay: 1s;
+  animation-delay: 0.75s;
  }
  .third{
-  animation-delay: 2s;
+  animation-delay: 1.5s;
  }
  .fourth{
-  animation-delay: 3s;
- }
-
- @keyframes lowerLoadingCircles{
-  0%   {background-color:#F052F2; left:0px; top:60px;}
-  25%  {background-color:#049DD9; left:100px; top:60px;}
-  50%  {background-color:#B0D1D9; left:100px; top:160px;}
-  75%  {background-color:#F2CD5C; left:0px; top:160px;}
-  100% {background-color:#F052F2; left:0px; top:60px;}
+  animation-delay: 2.25s;
  }
 
  @keyframes loadingCircles {
