@@ -152,7 +152,7 @@ function getApps(URL){
 }
 
 const resultsPerPage = 50;
-const API_key= config.Spoontacular_api_key || 'api_key';
+const API_key= 'e31330a3bd494aaa8323e1a4293b775d';
 const SpoontacularURL = 'https://api.spoonacular.com/recipes/complexSearch?';
 const staticParameters = `type=appetizer&instructionsRequired=true&number=${resultsPerPage}&limitLicense=true&addRecipeInformation=true&`;
 
